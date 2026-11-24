@@ -182,6 +182,7 @@ class BaseIndependentMoE(nn.Module):
         self,
         hidden_states: torch.Tensor,
         token_mask: Optional[torch.Tensor] = None,
+        router_context: Optional[torch.Tensor] = None,
     ) -> Tuple[torch.Tensor, torch.Tensor, Optional[torch.Tensor], Optional[torch.Tensor]]:
         batch_size, sequence_length, hidden_dim = hidden_states.shape
 
@@ -211,6 +212,14 @@ class BaseIndependentMoE(nn.Module):
                 None,
                 None,
             )
+
+        if router_context is not None:
+            # 视觉引导路由：把全局视觉上下文（已投影到本模态维度）作为路由偏置，
+            # 广播加到每个有效 token 的路由输入上，使专家选择感知视觉内容。
+            # 仅影响路由决策，不改变专家对各 token 特征的计算。
+            router_hidden_states = router_hidden_states + router_context.to(
+                router_hidden_states.dtype
+            ).reshape(1, -1)
 
         router_logits = self.gate(router_hidden_states)
         router_probs = F.softmax(router_logits, dim=1, dtype=torch.float32)
@@ -382,8 +391,15 @@ class MoECLIP(nn.Module):
             {
                 "proj": SimpleProj(text_d_model, 768, relu=True),
                 "moe_adapters": text_moe_adapters,
+                # 视觉引导文本路由：把全局视觉上下文（det_token，768 维）投影到文本维度，
+                # 作为文本 MoE Router 的路由偏置，实现“看到什么图决定文本怎么路由”。
+                "visual_router_proj": nn.Linear(768, text_d_model),
             }
         )
+        # 零初始化：初始时视觉路由偏置为 0，等价于第一次修改的独立双侧 MoE，
+        # 训练过程中平滑地学习视觉引导，避免一开始扰乱文本路由。
+        nn.init.zeros_(self.text_adapter["visual_router_proj"].weight)
+        nn.init.zeros_(self.text_adapter["visual_router_proj"].bias)
         
     @staticmethod
     def _gaussian_kernel(size: int, sigma: float = 2.0) -> torch.Tensor:
@@ -526,7 +542,7 @@ class MoECLIP(nn.Module):
         
         return seg_tokens, det_token, total_aux_loss, special_loss
 
-    def encode_text(self, text, adapt_text=True, return_aux=False):
+    def encode_text(self, text, adapt_text=True, return_aux=False, visual_context=None):
         if not adapt_text:
             text_features = self.clipmodel.encode_text(text)
             if return_aux:
@@ -551,9 +567,14 @@ class MoECLIP(nn.Module):
 
             if i in self.text_moe_layers:
                 moe_idx = self.text_moe_layers.index(i)
+                # 视觉引导：将全局视觉上下文投影到文本维度，作为文本 MoE 的路由偏置。
+                # visual_context 为 None 时退化为第一次修改的独立文本路由。
+                router_context = None
+                if visual_context is not None:
+                    router_context = self.text_adapter["visual_router_proj"](visual_context)
                 moe_output, moe_lb_loss, all_expert_outputs, selected_experts = \
                     self.text_adapter["moe_adapters"][moe_idx](
-                        x, token_mask=valid_token_mask
+                        x, token_mask=valid_token_mask, router_context=router_context
                     )
 
                 if self.training and all_expert_outputs is not None:

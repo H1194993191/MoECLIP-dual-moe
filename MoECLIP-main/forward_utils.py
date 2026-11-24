@@ -133,7 +133,7 @@ prompt_templates = prompt["prompt_templates"]
 
 
 def get_adapted_single_class_text_embedding(
-    model, dataset_name, class_name, device, return_aux=False
+    model, dataset_name, class_name, device, return_aux=False, visual_context=None
 ):
     if class_name == "object":
         real_name = class_name
@@ -155,13 +155,15 @@ def get_adapted_single_class_text_embedding(
         prompted_sentence = tokenize(prompted_sentence).to(device)
         if return_aux:
             class_embeddings, load_balance_loss, etf_special_loss = model.encode_text(
-                prompted_sentence, return_aux=True
+                prompted_sentence, return_aux=True, visual_context=visual_context
             )
             total_load_balance_loss += load_balance_loss
             total_etf_loss += etf_special_loss
             num_encode_calls += 1
         else:
-            class_embeddings = model.encode_text(prompted_sentence)
+            class_embeddings = model.encode_text(
+                prompted_sentence, visual_context=visual_context
+            )
         class_embeddings = class_embeddings / class_embeddings.norm(
             dim=-1, keepdim=True
         )

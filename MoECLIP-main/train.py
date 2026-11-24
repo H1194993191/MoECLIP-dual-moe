@@ -72,6 +72,7 @@ def train_adapter(
     etf_loss_lambda: float,
     text_balance_loss_lambda: float,
     text_etf_loss_lambda: float,
+    use_visual_router: bool = True,
 ):
 
     for epoch in range(start_epoch, end_epoch):
@@ -88,25 +89,43 @@ def train_adapter(
             label = input_data["label"].to(device)
             class_names = input_data["class_name"]
 
-            epoch_text_feature_dict = {}
+            # 先视觉前向：拿到 patch/det 特征，det_feature 同时作为全局视觉上下文
+            patch_features, det_feature, aux_loss, special_loss = adapted_model(image)
+
             text_balance_losses = []
             text_etf_losses = []
-            for class_name in list(set(class_names)):
-                text_embedding, text_balance_loss, text_etf_loss = \
-                    get_adapted_single_class_text_embedding(
-                        adapted_model, dataset_name, class_name, device, return_aux=True
-                    )
-                epoch_text_feature_dict[class_name] = text_embedding
-                text_balance_losses.append(text_balance_loss)
-                text_etf_losses.append(text_etf_loss)
-            epoch_text_feature = torch.stack(
-                [epoch_text_feature_dict[class_name] for class_name in class_names],
-                dim=0,
-            )
+            if use_visual_router:
+                # 第二次修改：视觉引导文本路由。逐样本用自身视觉上下文路由文本专家，
+                # 文本特征随图像变化（不再按类共享）。detach 使视觉上下文仅作条件、
+                # 不回传梯度到视觉分支，保证训练稳定。
+                text_feature_list = []
+                for b in range(len(class_names)):
+                    text_embedding, text_balance_loss, text_etf_loss = \
+                        get_adapted_single_class_text_embedding(
+                            adapted_model, dataset_name, class_names[b], device,
+                            return_aux=True, visual_context=det_feature[b].detach()
+                        )
+                    text_feature_list.append(text_embedding)
+                    text_balance_losses.append(text_balance_loss)
+                    text_etf_losses.append(text_etf_loss)
+            else:
+                # 第一次修改：独立双侧 MoE，文本按类编码、与图像无关。
+                epoch_text_feature_dict = {}
+                for class_name in list(set(class_names)):
+                    text_embedding, text_balance_loss, text_etf_loss = \
+                        get_adapted_single_class_text_embedding(
+                            adapted_model, dataset_name, class_name, device, return_aux=True
+                        )
+                    epoch_text_feature_dict[class_name] = text_embedding
+                    text_balance_losses.append(text_balance_loss)
+                    text_etf_losses.append(text_etf_loss)
+                text_feature_list = [
+                    epoch_text_feature_dict[class_name] for class_name in class_names
+                ]
+            epoch_text_feature = torch.stack(text_feature_list, dim=0)
             text_balance_loss = torch.stack(text_balance_losses).mean()
             text_etf_loss = torch.stack(text_etf_losses).mean()
-            
-            patch_features, det_feature, aux_loss, special_loss = adapted_model(image)
+
             loss = 0.0
             det_feature = det_feature.unsqueeze(1)  # (B,1,D)
             cls_preds = torch.matmul(det_feature, epoch_text_feature)[:, 0]
@@ -173,6 +192,12 @@ def main():
     parser.add_argument("--etf_loss_lambda", type=float, default=0.01, help="Weight for vision ETF loss")
     parser.add_argument("--text_balance_loss_lambda", type=float, default=0.01, help="Weight for text load balancing loss")
     parser.add_argument("--text_etf_loss_lambda", type=float, default=0.01, help="Weight for text ETF loss")
+    parser.add_argument(
+        "--no_visual_router",
+        action="store_false",
+        dest="use_visual_router",
+        help="Disable visually-guided text routing; fall back to v1 independent dual-side MoE",
+    )
     parser.add_argument(
         "--moe_layers",
         type=str,
@@ -331,7 +356,9 @@ def main():
         logger.info(f"Resuming from checkpoint: {last_ckp_path}")
         checkpoint = torch.load(last_ckp_path, map_location=device)
         
-        model.text_adapter.load_state_dict(checkpoint["text_adapter"])
+        # strict=False 以兼容第一次修改（v1）的 checkpoint：
+        # 其中没有 visual_router_proj，该层保持零初始化，实现从 v1 平滑过渡。
+        model.text_adapter.load_state_dict(checkpoint["text_adapter"], strict=False)
         model.image_adapter.load_state_dict(checkpoint["image_adapter"])
         
         optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
@@ -380,6 +407,7 @@ def main():
         etf_loss_lambda=args.etf_loss_lambda,
         text_balance_loss_lambda=args.text_balance_loss_lambda,
         text_etf_loss_lambda=args.text_etf_loss_lambda,
+        use_visual_router=args.use_visual_router,
     )
 
 

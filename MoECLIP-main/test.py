@@ -17,6 +17,7 @@ from model.clip import create_model
 from dataset import get_dataset, DOMAINS, DATA_PATH
 from forward_utils import (
     get_adapted_text_embedding,
+    get_adapted_single_class_text_embedding,
     calculate_similarity_map,
     group_indices_by_variant,
     metrics_eval,
@@ -64,6 +65,7 @@ def get_predictions(
     device: str,
     img_size: int,
     dataset: str = "MVTec",
+    use_visual_router: bool = False,
 ):
     masks = []
     labels = []
@@ -82,11 +84,25 @@ def get_predictions(
         masks.append(mask)
         labels.append(label)
         file_names.extend(file_name)
-        epoch_text_feature = class_text_embeddings
 
         patch_features, det_feature, _, _ = model(image)
 
-        pred = det_feature @ epoch_text_feature
+        if use_visual_router:
+            # 第二次修改：视觉引导文本路由。逐样本用自身视觉上下文编码文本，
+            # 文本特征随图像变化，epoch_text_feature 形状为 (B, 768, 2)。
+            text_list = []
+            for b in range(len(class_name)):
+                text_emb = get_adapted_single_class_text_embedding(
+                    model, dataset, class_name[b], device,
+                    visual_context=det_feature[b]
+                )
+                text_list.append(text_emb)
+            epoch_text_feature = torch.stack(text_list, dim=0)
+            pred = torch.matmul(det_feature.unsqueeze(1), epoch_text_feature)[:, 0]
+        else:
+            # 第一次修改：文本按类预算、与图像无关，形状 (768, 2)。
+            epoch_text_feature = class_text_embeddings
+            pred = det_feature @ epoch_text_feature
         pred = (pred[:, 1] + 1) / 2
         preds_image.append(pred.cpu().numpy())
 
@@ -182,6 +198,12 @@ def main():
         help="Comma-separated text layer indices for MoE application",
     )
     parser.add_argument("--no_use_fofs", action="store_false", help="Use fixed-A LoRA partitioning (default: True)")
+    parser.add_argument(
+        "--no_visual_router",
+        action="store_false",
+        dest="use_visual_router",
+        help="Disable visually-guided text routing; fall back to v1 independent dual-side MoE",
+    )
     # testing
     parser.add_argument("--dataset", type=str, default="MVTec")
     parser.add_argument("--shot", type=int, default=4)
@@ -271,8 +293,9 @@ def main():
         logger.info(checkpoint_path)
         checkpoint = torch.load(checkpoint_path, map_location=device)
         
-        if "text_adapter" in checkpoint: 
-            model.text_adapter.load_state_dict(checkpoint["text_adapter"])
+        if "text_adapter" in checkpoint:
+            # strict=False 兼容 v1 checkpoint（无 visual_router_proj，该层保持零初始化）
+            model.text_adapter.load_state_dict(checkpoint["text_adapter"], strict=False)
             adapt_text = True
         else:
             adapt_text = False
@@ -332,6 +355,7 @@ def main():
                     device=device,
                     img_size=args.img_size,
                     dataset=args.dataset,
+                    use_visual_router=args.use_visual_router,
                 )
             # ========================================================
             variant_indices = group_indices_by_variant(file_names)

@@ -1,6 +1,6 @@
 # MoECLIP-dual-moe — 实验结果
 
-本目录存放 **MoECLIP 双侧 MoE 修改版**的实验结果。代码改动详见仓库根目录的 [`DUAL_MOE_CHANGES.md`](../DUAL_MOE_CHANGES.md)。
+本目录存放 **MoECLIP 双侧 MoE 修改版**的实验结果。代码改动详见仓库根目录的 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
 
 ## 代码说明
 
@@ -32,7 +32,7 @@ results/
 
 | 版本 | 代码改动 | 训练命令 | 结果状态 |
 |---|---|---|---|
-| v1 | 文本+视觉独立双侧 MoE（首版，见 DUAL_MOE_CHANGES.md） | `python train.py --save_path ckpt/dual_moe`（VisA 权重）+ `ckpt/dual_moe_mvtec`（MVTec 权重） | ✅ 14 数据集全跑完 |
+| v1 | 文本+视觉独立双侧 MoE（首版，见 MODIFICATIONS.md） | `python train.py --save_path ckpt/dual_moe`（VisA 权重）+ `ckpt/dual_moe_mvtec`（MVTec 权重） | ✅ 14 数据集全跑完 |
 
 ## 数据说明
 
