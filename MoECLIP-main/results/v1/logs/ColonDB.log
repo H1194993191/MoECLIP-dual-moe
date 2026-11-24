@@ -1,0 +1,166 @@
+2026-11-23 06:01:04,194 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'Colon_colonDB', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe'}
+2026-11-23 06:01:04,195 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-23 06:01:13,028 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-23 06:01:13,612 [INFO] -----------------------------------------------
+2026-11-23 06:01:13,612 [INFO] dataset: Colon_colonDB
+2026-11-23 06:01:13,612 [INFO] -----------------------------------------------
+2026-11-23 06:01:13,612 [INFO] ckpt/dual_moe\moe_epoch_1.pth
+2026-11-23 06:01:13,669 [INFO] -----------------------------------------------
+2026-11-23 06:01:13,669 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe\moe_epoch_1.pth
+2026-11-23 06:01:13,669 [INFO] -----------------------------------------------
+2026-11-23 06:03:41,823 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    80.05    33.69      0.0      0.0  
+      Average    80.05    33.69      0.0      0.0  
+2026-11-23 06:03:41,824 [INFO] ckpt/dual_moe\moe_epoch_2.pth
+2026-11-23 06:03:41,955 [INFO] -----------------------------------------------
+2026-11-23 06:03:41,955 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe\moe_epoch_2.pth
+2026-11-23 06:03:41,955 [INFO] -----------------------------------------------
+2026-11-23 06:06:12,184 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    81.79    35.38      0.0      0.0  
+      Average    81.79    35.38      0.0      0.0  
+2026-11-23 06:06:12,185 [INFO] ckpt/dual_moe\moe_epoch_3.pth
+2026-11-23 06:06:12,338 [INFO] -----------------------------------------------
+2026-11-23 06:06:12,338 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe\moe_epoch_3.pth
+2026-11-23 06:06:12,339 [INFO] -----------------------------------------------
+2026-11-23 06:08:43,742 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    82.18    35.47      0.0      0.0  
+      Average    82.18    35.47      0.0      0.0  
+2026-11-23 06:08:43,743 [INFO] ckpt/dual_moe\moe_epoch_4.pth
+2026-11-23 06:08:43,889 [INFO] -----------------------------------------------
+2026-11-23 06:08:43,889 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe\moe_epoch_4.pth
+2026-11-23 06:08:43,889 [INFO] -----------------------------------------------
+2026-11-23 06:11:16,032 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    82.21    33.96      0.0      0.0  
+      Average    82.21    33.96      0.0      0.0  
+2026-11-23 06:11:16,032 [INFO] ckpt/dual_moe\moe_epoch_5.pth
+2026-11-23 06:11:16,179 [INFO] -----------------------------------------------
+2026-11-23 06:11:16,179 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe\moe_epoch_5.pth
+2026-11-23 06:11:16,179 [INFO] -----------------------------------------------
+2026-11-23 06:13:47,100 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    82.4     35.94      0.0      0.0  
+      Average    82.4     35.94      0.0      0.0  
+2026-11-23 06:13:47,100 [INFO] ckpt/dual_moe\moe_epoch_6.pth
+2026-11-23 06:13:47,248 [INFO] -----------------------------------------------
+2026-11-23 06:13:47,248 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe\moe_epoch_6.pth
+2026-11-23 06:13:47,248 [INFO] -----------------------------------------------
+2026-11-23 06:16:15,168 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    81.55    34.62      0.0      0.0  
+      Average    81.55    34.62      0.0      0.0  
+2026-11-23 06:16:15,169 [INFO] ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 06:16:15,315 [INFO] -----------------------------------------------
+2026-11-23 06:16:15,315 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 06:16:15,316 [INFO] -----------------------------------------------
+2026-11-23 06:18:46,025 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    83.03    34.38      0.0      0.0  
+      Average    83.03    34.38      0.0      0.0  
+2026-11-23 06:18:46,025 [INFO] ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 06:18:46,168 [INFO] -----------------------------------------------
+2026-11-23 06:18:46,168 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 06:18:46,168 [INFO] -----------------------------------------------
+2026-11-23 06:21:17,722 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    82.93    34.09      0.0      0.0  
+      Average    82.93    34.09      0.0      0.0  
+2026-11-23 06:21:17,722 [INFO] ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 06:21:17,860 [INFO] -----------------------------------------------
+2026-11-23 06:21:17,860 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 06:21:17,860 [INFO] -----------------------------------------------
+2026-11-23 06:23:48,470 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    83.27    34.17      0.0      0.0  
+      Average    83.27    34.17      0.0      0.0  
+2026-11-23 06:23:48,471 [INFO] ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 06:23:48,635 [INFO] -----------------------------------------------
+2026-11-23 06:23:48,635 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 06:23:48,635 [INFO] -----------------------------------------------
+2026-11-23 06:26:18,269 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.67    36.11      0.0      0.0  
+      Average    84.67    36.11      0.0      0.0  
+2026-11-23 06:26:18,270 [INFO] ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 06:26:18,423 [INFO] -----------------------------------------------
+2026-11-23 06:26:18,423 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 06:26:18,423 [INFO] -----------------------------------------------
+2026-11-23 06:28:48,245 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.67    36.57      0.0      0.0  
+      Average    84.67    36.57      0.0      0.0  
+2026-11-23 06:28:48,246 [INFO] ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 06:28:48,396 [INFO] -----------------------------------------------
+2026-11-23 06:28:48,396 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 06:28:48,396 [INFO] -----------------------------------------------
+2026-11-23 06:31:16,655 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.84    37.12      0.0      0.0  
+      Average    84.84    37.12      0.0      0.0  
+2026-11-23 06:31:16,655 [INFO] ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 06:31:16,798 [INFO] -----------------------------------------------
+2026-11-23 06:31:16,799 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 06:31:16,799 [INFO] -----------------------------------------------
+2026-11-23 06:33:44,329 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.74    36.31      0.0      0.0  
+      Average    84.74    36.31      0.0      0.0  
+2026-11-23 06:33:44,330 [INFO] ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 06:33:44,491 [INFO] -----------------------------------------------
+2026-11-23 06:33:44,492 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 06:33:44,494 [INFO] -----------------------------------------------
+2026-11-23 06:36:11,853 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    85.25    36.22      0.0      0.0  
+      Average    85.25    36.22      0.0      0.0  
+2026-11-23 06:36:11,854 [INFO] ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 06:36:12,000 [INFO] -----------------------------------------------
+2026-11-23 06:36:12,000 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 06:36:12,000 [INFO] -----------------------------------------------
+2026-11-23 06:38:41,765 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    85.27    36.64      0.0      0.0  
+      Average    85.27    36.64      0.0      0.0  
+2026-11-23 06:38:41,765 [INFO] ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 06:38:41,912 [INFO] -----------------------------------------------
+2026-11-23 06:38:41,912 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 06:38:41,913 [INFO] -----------------------------------------------
+2026-11-23 06:41:12,535 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.95    36.76      0.0      0.0  
+      Average    84.95    36.76      0.0      0.0  
+2026-11-23 06:41:12,535 [INFO] ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 06:41:12,686 [INFO] -----------------------------------------------
+2026-11-23 06:41:12,686 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 06:41:12,686 [INFO] -----------------------------------------------
+2026-11-23 06:43:42,323 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.46    35.06      0.0      0.0  
+      Average    84.46    35.06      0.0      0.0  
+2026-11-23 06:43:42,324 [INFO] ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 06:43:42,483 [INFO] -----------------------------------------------
+2026-11-23 06:43:42,484 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 06:43:42,484 [INFO] -----------------------------------------------
+2026-11-23 06:46:13,117 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.67    35.69      0.0      0.0  
+      Average    84.67    35.69      0.0      0.0  
+2026-11-23 06:46:13,117 [INFO] ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 06:46:13,259 [INFO] -----------------------------------------------
+2026-11-23 06:46:13,260 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 06:46:13,260 [INFO] -----------------------------------------------
+2026-11-23 06:48:45,833 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.7     36.06      0.0      0.0  
+      Average    84.7     36.06      0.0      0.0  
+2026-11-23 06:48:45,834 [INFO] ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 06:48:45,986 [INFO] -----------------------------------------------
+2026-11-23 06:48:45,986 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 06:48:45,986 [INFO] -----------------------------------------------
+2026-11-23 06:51:13,980 [INFO] final results:
+  class name  pixel AUC pixel AP image AUC image AP
+Colon_colonDB    84.08    33.99      0.0      0.0  
+      Average    84.08    33.99      0.0      0.0  

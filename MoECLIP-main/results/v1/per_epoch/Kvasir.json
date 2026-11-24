@@ -1,0 +1,146 @@
+{
+  "dataset": "Kvasir",
+  "train_weights": "VisA",
+  "epochs": [
+    {
+      "epoch": 1,
+      "pAUC": 78.63,
+      "pAP": 42.03,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 2,
+      "pAUC": 82.55,
+      "pAP": 47.38,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 3,
+      "pAUC": 83.6,
+      "pAP": 49.44,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 4,
+      "pAUC": 83.94,
+      "pAP": 49.11,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 5,
+      "pAUC": 84.31,
+      "pAP": 50.27,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 6,
+      "pAUC": 83.0,
+      "pAP": 47.84,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 7,
+      "pAUC": 84.35,
+      "pAP": 49.72,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 8,
+      "pAUC": 84.8,
+      "pAP": 49.92,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 9,
+      "pAUC": 84.96,
+      "pAP": 50.66,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 10,
+      "pAUC": 86.28,
+      "pAP": 53.92,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 11,
+      "pAUC": 87.38,
+      "pAP": 56.7,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 12,
+      "pAUC": 87.81,
+      "pAP": 57.83,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 13,
+      "pAUC": 87.59,
+      "pAP": 56.76,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 14,
+      "pAUC": 88.05,
+      "pAP": 57.42,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 15,
+      "pAUC": 88.37,
+      "pAP": 58.77,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 16,
+      "pAUC": 88.45,
+      "pAP": 58.81,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 17,
+      "pAUC": 87.25,
+      "pAP": 55.84,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 18,
+      "pAUC": 88.08,
+      "pAP": 57.64,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 19,
+      "pAUC": 87.89,
+      "pAP": 57.95,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    },
+    {
+      "epoch": 20,
+      "pAUC": 87.39,
+      "pAP": 56.13,
+      "iAUC": 0.0,
+      "iAP": 0.0
+    }
+  ]
+}

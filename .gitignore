@@ -7,3 +7,9 @@ ckpt/
 *.pth
 *.pt
 .DS_Store
+
+# 保留结果归档中的原始测试日志（results/ 下不受 *.log 影响）
+!MoECLIP-main/results/
+!MoECLIP-main/results/v1/
+!MoECLIP-main/results/v1/logs/
+!MoECLIP-main/results/v1/logs/*.log

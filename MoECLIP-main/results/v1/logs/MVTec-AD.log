@@ -1,0 +1,446 @@
+2026-11-20 22:24:45,503 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'MVTec', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe'}
+2026-11-20 22:24:45,503 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-20 22:24:54,377 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-20 22:24:54,960 [INFO] -----------------------------------------------
+2026-11-20 22:24:54,960 [INFO] dataset: MVTec
+2026-11-20 22:24:54,961 [INFO] -----------------------------------------------
+2026-11-20 22:24:54,961 [INFO] ckpt/dual_moe\moe_epoch_1.pth
+2026-11-20 22:24:55,018 [INFO] -----------------------------------------------
+2026-11-20 22:24:55,019 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe\moe_epoch_1.pth
+2026-11-20 22:24:55,020 [INFO] -----------------------------------------------
+2026-11-20 22:42:45,152 [INFO] final results:
+class name pixel AUC  pixel AP image AUC   image AP 
+    bottle      91.45   60.59       97.22      99.23
+     cable      82.09    9.03        62.2      76.66
+   capsule      94.59   21.05       79.78      95.64
+    carpet      99.38   75.35       98.68      99.65
+      grid      96.15   28.22       96.99      99.04
+  hazelnut      96.81   48.66       84.25       91.9
+   leather      99.28   46.98       100.0      100.0
+ metal_nut      74.71   29.37       89.69      97.53
+      pill      82.59   25.49       76.76       94.8
+     screw       98.0   28.71       80.14      92.33
+      tile      94.91   71.32       97.22      98.93
+transistor      66.36   13.55       76.17       75.9
+toothbrush      92.94   20.75       89.44       95.8
+      wood      96.75   61.45       93.95      97.69
+    zipper      97.15   56.42       96.53      99.11
+   Average  90.877333  39.796   87.934667  94.280667
+2026-11-20 22:42:45,152 [INFO] ckpt/dual_moe\moe_epoch_2.pth
+2026-11-20 22:42:45,255 [INFO] -----------------------------------------------
+2026-11-20 22:42:45,255 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe\moe_epoch_2.pth
+2026-11-20 22:42:45,255 [INFO] -----------------------------------------------
+2026-11-20 22:59:22,129 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP 
+    bottle      95.11      65.85    97.54        99.3
+     cable      82.96      16.76    79.95       88.58
+   capsule      95.13      24.71    83.45       96.45
+    carpet      99.43      74.81    99.92       99.97
+      grid      95.71      28.27    97.08       98.96
+  hazelnut      97.22      53.98    89.32       94.66
+   leather      99.27      48.56    100.0       100.0
+ metal_nut      71.97      28.65     85.0       96.58
+      pill      81.84      26.35    78.61       95.29
+     screw      98.23      27.84     79.4       92.05
+      tile      94.74      72.46    98.09       99.26
+transistor      63.69      13.69    78.58       76.69
+toothbrush      94.78      32.66     95.0       98.09
+      wood      97.23      63.96     95.0       98.29
+    zipper      95.64      47.15    90.39       97.53
+   Average  90.863333  41.713333   89.822   95.446667
+2026-11-20 22:59:22,129 [INFO] ckpt/dual_moe\moe_epoch_3.pth
+2026-11-20 22:59:22,234 [INFO] -----------------------------------------------
+2026-11-20 22:59:22,234 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe\moe_epoch_3.pth
+2026-11-20 22:59:22,234 [INFO] -----------------------------------------------
+2026-11-20 23:15:56,439 [INFO] final results:
+class name pixel AUC  pixel AP image AUC  image AP 
+    bottle      95.41   66.01      98.1       99.48
+     cable       83.7   17.58     78.56       87.95
+   capsule      96.07   27.69     90.23       98.04
+    carpet      99.45   74.72     99.92       99.97
+      grid      96.96   29.13     97.99       99.28
+  hazelnut      96.93   51.65     89.93       94.77
+   leather      99.31   49.35     100.0       100.0
+ metal_nut      80.47   35.52     88.91       97.45
+      pill       83.5   26.58     80.11       95.85
+     screw      98.28   28.02     74.61       90.15
+      tile      94.43   72.19     97.91       99.24
+transistor      68.15   13.93     80.96       75.92
+toothbrush      95.11    36.4     95.83       98.27
+      wood      97.44   64.34     94.56       97.95
+    zipper      97.63   58.91     97.53       99.37
+   Average  92.189333  43.468     91.01   95.579333
+2026-11-20 23:15:56,439 [INFO] ckpt/dual_moe\moe_epoch_4.pth
+2026-11-20 23:15:56,555 [INFO] -----------------------------------------------
+2026-11-20 23:15:56,556 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe\moe_epoch_4.pth
+2026-11-20 23:15:56,557 [INFO] -----------------------------------------------
+2026-11-20 23:32:39,261 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    bottle      94.86      65.75      97.22      99.23
+     cable       83.8      20.06      76.22       87.2
+   capsule      96.14      28.55      90.51      98.08
+    carpet      99.48      76.61      99.92      99.97
+      grid       97.8      30.64      98.66      99.53
+  hazelnut       97.0      51.82      90.46      95.43
+   leather      99.37      50.45      100.0      100.0
+ metal_nut      77.78      31.89      82.45      96.16
+      pill      85.35       28.0      82.54      96.48
+     screw      98.45      29.77      76.78      90.93
+      tile      95.59      72.83      98.52       99.4
+transistor      69.37      13.71      82.58      79.68
+toothbrush      96.25      41.12      96.94      98.57
+      wood       97.6      64.66      95.53      98.47
+    zipper      97.81      60.51       98.4       99.6
+   Average  92.443333  44.424667  91.115333  95.915333
+2026-11-20 23:32:39,262 [INFO] ckpt/dual_moe\moe_epoch_5.pth
+2026-11-20 23:32:39,368 [INFO] -----------------------------------------------
+2026-11-20 23:32:39,368 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe\moe_epoch_5.pth
+2026-11-20 23:32:39,368 [INFO] -----------------------------------------------
+2026-11-20 23:49:23,655 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    bottle      94.71      66.02      96.98       99.2
+     cable      84.52      21.64      77.34      87.68
+   capsule      95.97      28.16      89.87      97.94
+    carpet      99.49      77.22      99.96      99.99
+      grid      97.93      30.94      98.75      99.56
+  hazelnut      97.43      56.51      92.36      96.27
+   leather      99.37      50.04      100.0      100.0
+ metal_nut      77.82       30.8      85.97      96.84
+      pill      86.41      30.29      86.58      97.27
+     screw      98.56      31.48      83.32      93.18
+      tile      95.65      72.06      99.03      99.62
+transistor      71.97      14.38      86.04      84.08
+toothbrush      95.91      36.85      95.56      97.91
+      wood      97.71      65.21      97.02      99.02
+    zipper      97.94      60.48      98.79      99.68
+   Average  92.759333  44.805333  92.504667  96.549333
+2026-11-20 23:49:23,655 [INFO] ckpt/dual_moe\moe_epoch_6.pth
+2026-11-20 23:49:23,760 [INFO] -----------------------------------------------
+2026-11-20 23:49:23,760 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe\moe_epoch_6.pth
+2026-11-20 23:49:23,760 [INFO] -----------------------------------------------
+2026-11-21 00:06:08,054 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP 
+    bottle      94.57      65.47    97.86       99.36
+     cable      83.81      21.92    83.66       90.97
+   capsule      96.06      29.19    94.02       98.81
+    carpet       99.5      78.78    99.84       99.95
+      grid      97.62      31.38    99.16       99.71
+  hazelnut      97.56      57.16     92.5       96.08
+   leather      99.31      47.81    100.0       100.0
+ metal_nut      76.39      30.01    86.66       97.07
+      pill      85.12      28.07    87.18       97.42
+     screw      98.62      31.83    83.15       93.24
+      tile      95.38      72.59    99.57       99.83
+transistor      70.86      14.23    85.29       83.34
+toothbrush      96.25      38.85    95.83       98.49
+      wood      97.75      65.46    97.46       99.15
+    zipper      98.11      60.43    98.37       99.62
+   Average  92.460667  44.878667    93.37   96.869333
+2026-11-21 00:06:08,055 [INFO] ckpt/dual_moe\moe_epoch_7.pth
+2026-11-21 00:06:08,155 [INFO] -----------------------------------------------
+2026-11-21 00:06:08,155 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe\moe_epoch_7.pth
+2026-11-21 00:06:08,156 [INFO] -----------------------------------------------
+2026-11-21 00:22:53,389 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    bottle      95.53      67.91       97.7      99.29
+     cable      83.11       24.6      83.75      91.21
+   capsule      96.53      31.92      95.29      99.08
+    carpet      99.57      80.79      100.0      100.0
+      grid      98.06      32.11       99.0      99.65
+  hazelnut      97.88      61.86      93.39      96.81
+   leather      99.39      52.61      100.0      100.0
+ metal_nut      73.93      27.46      83.28      96.35
+      pill      85.54      28.48      88.41      97.71
+     screw      98.79      35.37      87.42      95.08
+      tile      96.89      75.68      99.46       99.8
+transistor      71.77      14.16      83.87      82.54
+toothbrush      96.47      41.31       95.0       98.2
+      wood      97.87       66.5      98.16       99.4
+    zipper      98.34      63.63      99.53      99.89
+   Average  92.644667  46.959333  93.617333  97.000667
+2026-11-21 00:22:53,389 [INFO] ckpt/dual_moe\moe_epoch_8.pth
+2026-11-21 00:22:53,498 [INFO] -----------------------------------------------
+2026-11-21 00:22:53,499 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe\moe_epoch_8.pth
+2026-11-21 00:22:53,499 [INFO] -----------------------------------------------
+2026-11-21 00:39:36,606 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    bottle    94.95    66.59     97.06    99.15 
+     cable    83.69    22.67     84.82    91.16 
+   capsule    96.01    28.44     94.34    98.88 
+    carpet    99.56    79.95     99.96    99.99 
+      grid    97.73    32.28     99.08    99.68 
+  hazelnut    98.03    63.94     95.18    97.68 
+   leather    99.41    53.76     100.0    100.0 
+ metal_nut    72.07    26.09     80.45    95.73 
+      pill    85.82    28.76     89.28    97.89 
+     screw    98.77    36.35     87.97    95.34 
+      tile    96.89    76.61     99.35    99.75 
+transistor    72.88    15.12     86.63    86.89 
+toothbrush    96.23    41.77      95.0    98.01 
+      wood    97.78    67.22     98.51    99.54 
+    zipper    98.46    64.76     99.61     99.9 
+   Average   92.552   46.954    93.816   97.306 
+2026-11-21 00:39:36,607 [INFO] ckpt/dual_moe\moe_epoch_9.pth
+2026-11-21 00:39:36,725 [INFO] -----------------------------------------------
+2026-11-21 00:39:36,725 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe\moe_epoch_9.pth
+2026-11-21 00:39:36,726 [INFO] -----------------------------------------------
+2026-11-21 00:56:17,433 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    bottle     95.0    66.57     96.59    99.04 
+     cable    82.73    22.42     83.11    90.16 
+   capsule    96.35    28.99     93.66    98.75 
+    carpet    99.56    80.64     99.96    99.99 
+      grid    97.92    33.05     99.08    99.68 
+  hazelnut    98.25     66.0     95.68    97.84 
+   leather    99.41    53.87     100.0    100.0 
+ metal_nut    71.48    25.38     77.52    95.06 
+      pill    86.56     29.3     89.17    97.87 
+     screw    98.79    35.01     88.81     95.6 
+      tile     96.6    76.34     99.42    99.78 
+transistor    70.72    13.21     84.25    82.37 
+toothbrush    96.38    40.22     94.44    97.93 
+      wood    97.86     68.6     98.86    99.67 
+    zipper    98.24    64.17     99.76    99.94 
+   Average    92.39   46.918    93.354   96.912 
+2026-11-21 00:56:17,434 [INFO] ckpt/dual_moe\moe_epoch_10.pth
+2026-11-21 00:56:17,542 [INFO] -----------------------------------------------
+2026-11-21 00:56:17,542 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe\moe_epoch_10.pth
+2026-11-21 00:56:17,542 [INFO] -----------------------------------------------
+2026-11-21 01:12:56,769 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP 
+    bottle      95.01      65.77    96.98        99.1
+     cable      83.08      19.06     82.2       89.68
+   capsule      96.01      27.43    94.93       99.02
+    carpet      99.57      79.94    99.96       99.99
+      grid      97.26      33.09    99.16        99.7
+  hazelnut       98.3      67.68    96.07       98.14
+   leather      99.42      55.41    100.0       100.0
+ metal_nut      63.91      22.02    78.64       95.33
+      pill      86.34      28.45    88.27       97.61
+     screw      98.71      36.72    90.55       96.58
+      tile      96.63      76.94    99.46        99.8
+transistor       69.4      14.44    87.17        86.6
+toothbrush      94.82      33.28    95.83        98.5
+      wood       97.9      67.94    99.12       99.74
+    zipper      98.07      64.09    99.71       99.93
+   Average  91.628667  46.150667    93.87   97.314667
+2026-11-21 01:12:56,770 [INFO] ckpt/dual_moe\moe_epoch_11.pth
+2026-11-21 01:12:56,873 [INFO] -----------------------------------------------
+2026-11-21 01:12:56,873 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe\moe_epoch_11.pth
+2026-11-21 01:12:56,874 [INFO] -----------------------------------------------
+2026-11-21 01:29:11,269 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC  image AP 
+    bottle    94.19       63.57    96.27       98.91
+     cable    82.25       16.96    80.51       88.22
+   capsule    96.04       27.83    94.06       98.87
+    carpet     99.6       80.95    99.84       99.95
+      grid    97.35       32.62    99.33       99.76
+  hazelnut    98.15       66.38    96.18       98.25
+   leather    99.42        56.3    100.0       100.0
+ metal_nut    64.82       22.29     76.3       94.82
+      pill     86.5        27.1    88.95       97.84
+     screw    98.51       37.84    92.64       97.39
+      tile    95.82       76.42    99.03       99.64
+transistor    70.88       13.32    83.71       80.73
+toothbrush    94.21       26.59    88.89       95.19
+      wood    97.82        68.8    98.86       99.66
+    zipper    97.48       60.81    98.63       99.66
+   Average   91.536   45.185333    92.88   96.592667
+2026-11-21 01:29:11,270 [INFO] ckpt/dual_moe\moe_epoch_12.pth
+2026-11-21 01:29:11,371 [INFO] -----------------------------------------------
+2026-11-21 01:29:11,371 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe\moe_epoch_12.pth
+2026-11-21 01:29:11,371 [INFO] -----------------------------------------------
+2026-11-21 01:45:15,602 [INFO] final results:
+class name pixel AUC pixel AP image AUC  image AP 
+    bottle    94.34    64.66     96.03       98.77
+     cable    82.28     16.3     81.32       89.19
+   capsule    95.96    27.53     94.02       98.82
+    carpet     99.6    81.88     100.0       100.0
+      grid    97.26    32.63      99.5       99.82
+  hazelnut    97.91    64.52     95.43       97.89
+   leather    99.45    57.19     100.0       100.0
+ metal_nut     59.7    21.15     77.08       95.04
+      pill    86.38    27.11     89.28       97.94
+     screw    98.47    36.91     90.37       96.47
+      tile    96.16    77.87     99.35       99.76
+transistor    68.95     13.9     85.79        83.0
+toothbrush    93.83    24.56     86.11       92.52
+      wood    97.97    69.41     98.86       99.64
+    zipper    97.49     61.0     98.92       99.74
+   Average    91.05   45.108    92.804   96.573333
+2026-11-21 01:45:15,603 [INFO] ckpt/dual_moe\moe_epoch_13.pth
+2026-11-21 01:45:15,703 [INFO] -----------------------------------------------
+2026-11-21 01:45:15,704 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe\moe_epoch_13.pth
+2026-11-21 01:45:15,704 [INFO] -----------------------------------------------
+2026-11-21 02:01:27,752 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    bottle      94.01      64.82      96.67      98.93
+     cable      82.51      16.22      83.21       90.6
+   capsule      95.74      27.81      95.29      99.11
+    carpet      99.62      82.52      100.0      100.0
+      grid      97.48       33.7      99.75      99.91
+  hazelnut       98.1      67.17      96.79      98.56
+   leather      99.51      59.25      100.0      100.0
+ metal_nut      60.31      21.37      76.69      94.95
+      pill      85.24      27.71       89.8       98.0
+     screw      98.57       37.8      93.13      97.54
+      tile      96.01      78.08      99.35      99.76
+transistor      69.11      13.14      81.42      79.38
+toothbrush      93.88      25.48      92.22      96.64
+      wood      98.12      71.28      98.68      99.59
+    zipper      97.62      62.05       99.4      99.85
+   Average  91.055333  45.893333  93.493333  96.854667
+2026-11-21 02:01:27,753 [INFO] ckpt/dual_moe\moe_epoch_14.pth
+2026-11-21 02:01:27,847 [INFO] -----------------------------------------------
+2026-11-21 02:01:27,847 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe\moe_epoch_14.pth
+2026-11-21 02:01:27,848 [INFO] -----------------------------------------------
+2026-11-21 02:17:32,639 [INFO] final results:
+class name pixel AUC  pixel AP image AUC   image AP 
+    bottle       94.4    65.7       95.87      98.74
+     cable      82.18   18.17       84.11       91.0
+   capsule      95.83    29.1       96.09      99.26
+    carpet      99.61   81.83       100.0      100.0
+      grid      96.89   33.25        99.0      99.67
+  hazelnut      98.16   67.95       96.96      98.61
+   leather       99.5   59.29       100.0      100.0
+ metal_nut      59.34    20.6       76.74      94.93
+      pill      84.71   26.13       88.33       97.7
+     screw      98.62   37.25       92.97      97.52
+      tile      94.88   76.79       99.13      99.68
+transistor      68.48   12.79       80.96      78.74
+toothbrush      93.54   24.74       91.39       96.6
+      wood      98.07   70.57       98.95      99.69
+    zipper       97.8   62.87       99.26      99.81
+   Average  90.800667  45.802   93.317333  96.796667
+2026-11-21 02:17:32,640 [INFO] ckpt/dual_moe\moe_epoch_15.pth
+2026-11-21 02:17:32,744 [INFO] -----------------------------------------------
+2026-11-21 02:17:32,744 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe\moe_epoch_15.pth
+2026-11-21 02:17:32,744 [INFO] -----------------------------------------------
+2026-11-21 02:33:47,458 [INFO] final results:
+class name pixel AUC pixel AP image AUC  image AP
+    bottle    94.22    65.44       96.19   98.83 
+     cable    82.34    17.11       82.55   90.07 
+   capsule    95.93    29.51       96.41   99.32 
+    carpet    99.63    82.61       99.96   99.99 
+      grid    97.03    33.37        99.5   99.82 
+  hazelnut    98.32    69.78       96.71   98.48 
+   leather     99.5    58.95       100.0   100.0 
+ metal_nut    60.37     21.2       77.76   95.15 
+      pill    84.76    26.06       87.18   97.46 
+     screw    98.51    37.86       93.01   97.59 
+      tile    95.39    77.43       99.21    99.7 
+transistor    69.58    13.11       82.54   80.06 
+toothbrush    93.47     21.5        87.5   94.68 
+      wood     98.2    71.39       98.68    99.6 
+    zipper    97.66    64.26       99.37   99.84 
+   Average   90.994   45.972   93.104667  96.706 
+2026-11-21 02:33:47,458 [INFO] ckpt/dual_moe\moe_epoch_16.pth
+2026-11-21 02:33:47,563 [INFO] -----------------------------------------------
+2026-11-21 02:33:47,564 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe\moe_epoch_16.pth
+2026-11-21 02:33:47,564 [INFO] -----------------------------------------------
+2026-11-21 02:49:58,686 [INFO] final results:
+class name pixel AUC  pixel AP image AUC   image AP 
+    bottle       93.8   63.65        95.0      98.48
+     cable      82.41    15.4       81.75      89.19
+   capsule      95.86   28.64       95.81      99.22
+    carpet      99.61   81.75       100.0      100.0
+      grid      96.62    33.3       99.08      99.69
+  hazelnut      98.24   68.85       96.75      98.49
+   leather       99.5   58.94       100.0      100.0
+ metal_nut       61.1    21.1       76.05      94.68
+      pill      84.42   25.02       87.04      97.48
+     screw       98.4   36.16       93.99       97.9
+      tile      95.34   77.34       99.06      99.64
+transistor      72.24   14.01       85.83      84.79
+toothbrush      92.65   20.65       92.78      97.31
+      wood      98.12   70.15       98.25      99.45
+    zipper       97.3   60.19       98.58      99.65
+   Average  91.040667   45.01   93.331333  97.064667
+2026-11-21 02:49:58,687 [INFO] ckpt/dual_moe\moe_epoch_17.pth
+2026-11-21 02:49:58,789 [INFO] -----------------------------------------------
+2026-11-21 02:49:58,790 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe\moe_epoch_17.pth
+2026-11-21 02:49:58,790 [INFO] -----------------------------------------------
+2026-11-21 03:06:10,754 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    bottle      94.29      64.66      95.48      98.64
+     cable      82.91      15.57      83.81       90.7
+   capsule      95.49      28.34      96.21      99.28
+    carpet      99.61      81.29      99.92      99.98
+      grid      96.78       32.8      99.67      99.88
+  hazelnut      98.25      68.62      97.54       98.8
+   leather      99.48      58.23      100.0      100.0
+ metal_nut      56.32      19.88      77.17      95.01
+      pill      82.42      25.13      87.92      97.67
+     screw      98.48      35.91      92.25      97.21
+      tile      95.09      75.84      99.13      99.67
+transistor      71.91      14.12      84.33      82.83
+toothbrush      92.42      17.83      90.56      96.45
+      wood      98.01      68.75      98.16      99.42
+    zipper       97.4      61.81      99.08      99.77
+   Average  90.590667  44.585333  93.415333  97.020667
+2026-11-21 03:06:10,754 [INFO] ckpt/dual_moe\moe_epoch_18.pth
+2026-11-21 03:06:10,858 [INFO] -----------------------------------------------
+2026-11-21 03:06:10,859 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe\moe_epoch_18.pth
+2026-11-21 03:06:10,859 [INFO] -----------------------------------------------
+2026-11-21 03:22:19,600 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP
+    bottle       94.7      65.41       95.4   98.63 
+     cable      81.43      14.48      82.53    90.0 
+   capsule      95.77      28.67      96.45   99.33 
+    carpet      99.62      82.16      99.92   99.98 
+      grid      95.52      32.39      99.33   99.77 
+  hazelnut      98.07      66.96      97.71    98.9 
+   leather       99.5       59.0      99.97   99.99 
+ metal_nut      56.32       19.9      77.27   95.02 
+      pill      83.94      26.24      89.17   97.92 
+     screw       98.3      35.53      92.46   97.32 
+      tile      95.02      77.51      99.13   99.67 
+transistor      70.15      13.27      82.63    81.2 
+toothbrush      92.04      17.54      87.78   94.67 
+      wood      98.12      70.41      98.51   99.51 
+    zipper       97.0       59.9      98.82    99.7 
+   Average  90.366667  44.624667  93.138667  96.774 
+2026-11-21 03:22:19,601 [INFO] ckpt/dual_moe\moe_epoch_19.pth
+2026-11-21 03:22:19,702 [INFO] -----------------------------------------------
+2026-11-21 03:22:19,703 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe\moe_epoch_19.pth
+2026-11-21 03:22:19,703 [INFO] -----------------------------------------------
+2026-11-21 03:38:42,775 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP
+    bottle      93.77      63.86      96.35   98.84 
+     cable      82.49      15.07      85.94   92.13 
+   capsule      95.17      27.13      96.41   99.31 
+    carpet      99.61      82.24      99.92   99.98 
+      grid      95.84      32.19      99.16   99.71 
+  hazelnut      98.19      68.49       97.5   98.82 
+   leather      99.45      57.93      100.0   100.0 
+ metal_nut      52.51      19.39       80.4   95.63 
+      pill       82.8      25.05      89.17   97.98 
+     screw      98.37      36.08       91.8   97.07 
+      tile      95.26      76.79      99.17   99.69 
+transistor      69.88      14.56      83.67    83.8 
+toothbrush      91.92      18.37       90.0   95.35 
+      wood      97.94      68.82      98.42    99.5 
+    zipper      97.18      60.11      99.11   99.77 
+   Average  90.025333  44.405333  93.801333  97.172 
+2026-11-21 03:38:42,775 [INFO] ckpt/dual_moe\moe_epoch_20.pth
+2026-11-21 03:38:42,879 [INFO] -----------------------------------------------
+2026-11-21 03:38:42,879 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe\moe_epoch_20.pth
+2026-11-21 03:38:42,880 [INFO] -----------------------------------------------
+2026-11-21 03:54:55,357 [INFO] final results:
+class name pixel AUC  pixel AP image AUC  image AP 
+    bottle      94.22   64.42     95.24       98.59
+     cable      81.74   16.47     83.15       89.97
+   capsule      95.27   27.72     95.97       99.24
+    carpet      99.63   82.74     100.0       100.0
+      grid      95.95   32.82     99.58       99.85
+  hazelnut      98.23   68.66     98.11       99.13
+   leather      99.51   59.23     99.97       99.99
+ metal_nut      55.11   19.98      78.1       95.19
+      pill       82.9   25.46     89.44       98.01
+     screw      98.41   37.29      91.9       97.19
+      tile      95.71   77.18      99.1       99.65
+transistor      71.93   14.77      84.5       83.11
+toothbrush      92.59   20.64     89.72       95.56
+      wood      98.12    69.9     97.89       99.31
+    zipper      96.94   60.66     99.11       99.77
+   Average  90.417333  45.196    93.452   96.970667

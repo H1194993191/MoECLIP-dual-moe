@@ -1,4 +1,4 @@
-BASE_PATH = "/data"
+BASE_PATH = "F:/HQB/Pycharm Project/Zero-shot anomaly detection/MoECLIP-main/MoECLIP-main/data"
 DATA_PATH = {
     "Brain": f"{BASE_PATH}/Brain",
     "Liver": f"{BASE_PATH}/Liver",

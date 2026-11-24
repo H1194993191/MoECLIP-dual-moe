@@ -1,0 +1,166 @@
+2026-11-23 10:18:35,954 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'Endo', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe'}
+2026-11-23 10:18:35,955 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-23 10:18:44,800 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-23 10:18:45,371 [INFO] -----------------------------------------------
+2026-11-23 10:18:45,372 [INFO] dataset: Endo
+2026-11-23 10:18:45,372 [INFO] -----------------------------------------------
+2026-11-23 10:18:45,373 [INFO] ckpt/dual_moe\moe_epoch_1.pth
+2026-11-23 10:18:45,430 [INFO] -----------------------------------------------
+2026-11-23 10:18:45,431 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe\moe_epoch_1.pth
+2026-11-23 10:18:45,431 [INFO] -----------------------------------------------
+2026-11-23 10:20:20,251 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      84.54    49.06      0.0      0.0  
+ Average      84.54    49.06      0.0      0.0  
+2026-11-23 10:20:20,251 [INFO] ckpt/dual_moe\moe_epoch_2.pth
+2026-11-23 10:20:20,354 [INFO] -----------------------------------------------
+2026-11-23 10:20:20,354 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe\moe_epoch_2.pth
+2026-11-23 10:20:20,355 [INFO] -----------------------------------------------
+2026-11-23 10:21:55,350 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      87.08    53.89      0.0      0.0  
+ Average      87.08    53.89      0.0      0.0  
+2026-11-23 10:21:55,350 [INFO] ckpt/dual_moe\moe_epoch_3.pth
+2026-11-23 10:21:55,480 [INFO] -----------------------------------------------
+2026-11-23 10:21:55,481 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe\moe_epoch_3.pth
+2026-11-23 10:21:55,481 [INFO] -----------------------------------------------
+2026-11-23 10:23:30,994 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      88.49    56.84      0.0      0.0  
+ Average      88.49    56.84      0.0      0.0  
+2026-11-23 10:23:30,994 [INFO] ckpt/dual_moe\moe_epoch_4.pth
+2026-11-23 10:23:31,113 [INFO] -----------------------------------------------
+2026-11-23 10:23:31,113 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe\moe_epoch_4.pth
+2026-11-23 10:23:31,113 [INFO] -----------------------------------------------
+2026-11-23 10:25:06,251 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      88.95    57.37      0.0      0.0  
+ Average      88.95    57.37      0.0      0.0  
+2026-11-23 10:25:06,251 [INFO] ckpt/dual_moe\moe_epoch_5.pth
+2026-11-23 10:25:06,356 [INFO] -----------------------------------------------
+2026-11-23 10:25:06,356 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe\moe_epoch_5.pth
+2026-11-23 10:25:06,357 [INFO] -----------------------------------------------
+2026-11-23 10:26:41,606 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      88.62    56.23      0.0      0.0  
+ Average      88.62    56.23      0.0      0.0  
+2026-11-23 10:26:41,607 [INFO] ckpt/dual_moe\moe_epoch_6.pth
+2026-11-23 10:26:41,722 [INFO] -----------------------------------------------
+2026-11-23 10:26:41,722 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe\moe_epoch_6.pth
+2026-11-23 10:26:41,722 [INFO] -----------------------------------------------
+2026-11-23 10:28:17,342 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      87.8     54.48      0.0      0.0  
+ Average      87.8     54.48      0.0      0.0  
+2026-11-23 10:28:17,343 [INFO] ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 10:28:17,467 [INFO] -----------------------------------------------
+2026-11-23 10:28:17,468 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 10:28:17,468 [INFO] -----------------------------------------------
+2026-11-23 10:29:59,675 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      88.89    56.68      0.0      0.0  
+ Average      88.89    56.68      0.0      0.0  
+2026-11-23 10:29:59,675 [INFO] ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 10:29:59,788 [INFO] -----------------------------------------------
+2026-11-23 10:29:59,788 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 10:29:59,789 [INFO] -----------------------------------------------
+2026-11-23 10:31:38,346 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      88.72    55.82      0.0      0.0  
+ Average      88.72    55.82      0.0      0.0  
+2026-11-23 10:31:38,346 [INFO] ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 10:31:38,480 [INFO] -----------------------------------------------
+2026-11-23 10:31:38,482 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 10:31:38,482 [INFO] -----------------------------------------------
+2026-11-23 10:33:14,238 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      89.18    57.15      0.0      0.0  
+ Average      89.18    57.15      0.0      0.0  
+2026-11-23 10:33:14,238 [INFO] ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 10:33:14,357 [INFO] -----------------------------------------------
+2026-11-23 10:33:14,357 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 10:33:14,357 [INFO] -----------------------------------------------
+2026-11-23 10:34:50,593 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.02    59.85      0.0      0.0  
+ Average      90.02    59.85      0.0      0.0  
+2026-11-23 10:34:50,595 [INFO] ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 10:34:50,721 [INFO] -----------------------------------------------
+2026-11-23 10:34:50,721 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 10:34:50,722 [INFO] -----------------------------------------------
+2026-11-23 10:36:31,845 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.69    61.69      0.0      0.0  
+ Average      90.69    61.69      0.0      0.0  
+2026-11-23 10:36:31,845 [INFO] ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 10:36:31,970 [INFO] -----------------------------------------------
+2026-11-23 10:36:31,970 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 10:36:31,970 [INFO] -----------------------------------------------
+2026-11-23 10:38:10,469 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.8     62.31      0.0      0.0  
+ Average      90.8     62.31      0.0      0.0  
+2026-11-23 10:38:10,470 [INFO] ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 10:38:10,599 [INFO] -----------------------------------------------
+2026-11-23 10:38:10,599 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 10:38:10,600 [INFO] -----------------------------------------------
+2026-11-23 10:39:47,965 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.5     60.87      0.0      0.0  
+ Average      90.5     60.87      0.0      0.0  
+2026-11-23 10:39:47,965 [INFO] ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 10:39:48,078 [INFO] -----------------------------------------------
+2026-11-23 10:39:48,078 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 10:39:48,079 [INFO] -----------------------------------------------
+2026-11-23 10:41:27,094 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.58    61.34      0.0      0.0  
+ Average      90.58    61.34      0.0      0.0  
+2026-11-23 10:41:27,094 [INFO] ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 10:41:27,221 [INFO] -----------------------------------------------
+2026-11-23 10:41:27,221 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 10:41:27,222 [INFO] -----------------------------------------------
+2026-11-23 10:43:05,112 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.71    61.89      0.0      0.0  
+ Average      90.71    61.89      0.0      0.0  
+2026-11-23 10:43:05,113 [INFO] ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 10:43:05,236 [INFO] -----------------------------------------------
+2026-11-23 10:43:05,236 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 10:43:05,236 [INFO] -----------------------------------------------
+2026-11-23 10:44:44,818 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.86    62.11      0.0      0.0  
+ Average      90.86    62.11      0.0      0.0  
+2026-11-23 10:44:44,819 [INFO] ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 10:44:44,948 [INFO] -----------------------------------------------
+2026-11-23 10:44:44,948 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 10:44:44,948 [INFO] -----------------------------------------------
+2026-11-23 10:46:24,097 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.0     59.39      0.0      0.0  
+ Average      90.0     59.39      0.0      0.0  
+2026-11-23 10:46:24,097 [INFO] ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 10:46:24,229 [INFO] -----------------------------------------------
+2026-11-23 10:46:24,229 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 10:46:24,230 [INFO] -----------------------------------------------
+2026-11-23 10:48:05,215 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.34    60.51      0.0      0.0  
+ Average      90.34    60.51      0.0      0.0  
+2026-11-23 10:48:05,215 [INFO] ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 10:48:05,339 [INFO] -----------------------------------------------
+2026-11-23 10:48:05,339 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 10:48:05,340 [INFO] -----------------------------------------------
+2026-11-23 10:49:47,153 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      90.07    59.91      0.0      0.0  
+ Average      90.07    59.91      0.0      0.0  
+2026-11-23 10:49:47,155 [INFO] ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 10:49:47,287 [INFO] -----------------------------------------------
+2026-11-23 10:49:47,288 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 10:49:47,288 [INFO] -----------------------------------------------
+2026-11-23 10:51:29,617 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+    Endo      89.88    59.08      0.0      0.0  
+ Average      89.88    59.08      0.0      0.0  

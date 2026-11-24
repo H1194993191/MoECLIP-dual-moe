@@ -1,0 +1,386 @@
+2026-11-22 10:35:41,378 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'DTD-Synthetic', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe'}
+2026-11-22 10:35:41,379 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-22 10:35:49,993 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-22 10:35:50,550 [INFO] -----------------------------------------------
+2026-11-22 10:35:50,550 [INFO] dataset: DTD-Synthetic
+2026-11-22 10:35:50,550 [INFO] -----------------------------------------------
+2026-11-22 10:35:50,550 [INFO] ckpt/dual_moe\moe_epoch_1.pth
+2026-11-22 10:35:50,606 [INFO] -----------------------------------------------
+2026-11-22 10:35:50,606 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe\moe_epoch_1.pth
+2026-11-22 10:35:50,607 [INFO] -----------------------------------------------
+2026-11-22 10:46:10,836 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Blotchy     98.69   55.78      75.56     93.1
+   Fibrous     99.32   66.84      100.0    100.0
+   Marbled     99.15   64.75      92.88    98.02
+    Matted     98.94   54.85      93.35    98.22
+      Mesh     91.38   44.44      82.47     93.1
+Perforated     90.29   44.46      73.25    93.08
+Stratified     99.15   69.85      95.13    98.93
+ Woven_001     99.63   65.47      97.52    99.15
+ Woven_068     97.57   49.23      92.08    96.32
+ Woven_104     96.38    61.7      94.81    98.72
+ Woven_125     99.18   70.04       99.3    99.83
+ Woven_127     92.25   41.39       91.3    93.34
+   Average   96.8275    57.4    90.6375  96.8175
+2026-11-22 10:46:10,836 [INFO] ckpt/dual_moe\moe_epoch_2.pth
+2026-11-22 10:46:10,970 [INFO] -----------------------------------------------
+2026-11-22 10:46:10,970 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe\moe_epoch_2.pth
+2026-11-22 10:46:10,971 [INFO] -----------------------------------------------
+2026-11-22 10:56:32,717 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+   Blotchy      99.12      64.94      89.88      97.27
+   Fibrous      99.35      67.94      100.0      100.0
+   Marbled      99.34      68.23      98.38       99.6
+    Matted      99.04      55.74      94.94      98.72
+      Mesh      94.01      46.51      81.87      93.08
+Perforated       94.1      48.69      77.62      94.08
+Stratified      99.16      70.55      96.25      99.15
+ Woven_001      99.67      66.64      99.57      99.83
+ Woven_068      97.76       48.9      94.34      97.27
+ Woven_104      97.38       62.8       98.5      99.64
+ Woven_125      99.33      68.77      98.86      99.73
+ Woven_127      93.67      46.07      94.83      96.14
+   Average  97.660833  59.648333  93.753333  97.875833
+2026-11-22 10:56:32,718 [INFO] ckpt/dual_moe\moe_epoch_3.pth
+2026-11-22 10:56:32,851 [INFO] -----------------------------------------------
+2026-11-22 10:56:32,851 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe\moe_epoch_3.pth
+2026-11-22 10:56:32,852 [INFO] -----------------------------------------------
+2026-11-22 11:07:04,745 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC  image AP 
+   Blotchy    99.27       67.33    91.88        97.8
+   Fibrous    99.35       68.74    99.87       99.97
+   Marbled    99.44       69.84    98.75       99.68
+    Matted    99.02       56.72    95.19        98.8
+      Mesh    94.88        47.4    82.92       93.32
+Perforated    95.37       57.49    82.19       95.71
+Stratified    98.99       69.58    95.69       99.05
+ Woven_001    99.69       66.46    99.62       99.84
+ Woven_068    98.06       50.05    94.09       97.17
+ Woven_104    98.01       64.19    97.94       99.52
+ Woven_125    99.42       69.01     99.3       99.83
+ Woven_127    94.56       48.05     95.3       96.59
+   Average   98.005   61.238333   94.395   98.106667
+2026-11-22 11:07:04,745 [INFO] ckpt/dual_moe\moe_epoch_4.pth
+2026-11-22 11:07:04,873 [INFO] -----------------------------------------------
+2026-11-22 11:07:04,873 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe\moe_epoch_4.pth
+2026-11-22 11:07:04,874 [INFO] -----------------------------------------------
+2026-11-22 11:17:35,734 [INFO] final results:
+class name pixel AUC  pixel AP image AUC image AP
+   Blotchy      99.26   66.25     90.56     97.38
+   Fibrous       99.3   67.79     100.0     100.0
+   Marbled      99.42   68.63     98.75     99.68
+    Matted      99.06   57.46     94.81     98.79
+      Mesh      96.13   48.95     83.58     93.52
+Perforated      95.41   58.84     82.31     95.82
+Stratified      99.15   69.47     96.19     99.15
+ Woven_001       99.7   68.06     98.48     99.51
+ Woven_068      98.35   51.92     94.71     97.43
+ Woven_104      97.77   64.74     98.62     99.67
+ Woven_125      99.44   69.75     99.11      99.8
+ Woven_127      95.37   49.32     94.66     96.06
+   Average  98.196667  61.765    94.315   98.0675
+2026-11-22 11:17:35,734 [INFO] ckpt/dual_moe\moe_epoch_5.pth
+2026-11-22 11:17:35,861 [INFO] -----------------------------------------------
+2026-11-22 11:17:35,862 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe\moe_epoch_5.pth
+2026-11-22 11:17:35,862 [INFO] -----------------------------------------------
+2026-11-22 11:28:01,113 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+   Blotchy       99.3       67.6    96.75     99.11
+   Fibrous      99.26      67.15    99.94     99.98
+   Marbled       99.4      68.17    99.12     99.78
+    Matted      99.06      57.37    94.75     98.76
+      Mesh      96.78      50.33    84.93     94.13
+Perforated      96.88      60.87     84.0     96.12
+Stratified      99.38      70.66    98.13      99.6
+ Woven_001      99.71      68.31    99.86     99.94
+ Woven_068      98.24      51.22    95.51     97.81
+ Woven_104      98.11      65.22    99.62     99.91
+ Woven_125      99.43      69.47    99.43     99.87
+ Woven_127      95.56      49.44    95.34     96.42
+   Average  98.425833  62.150833   95.615   98.4525
+2026-11-22 11:28:01,114 [INFO] ckpt/dual_moe\moe_epoch_6.pth
+2026-11-22 11:28:01,242 [INFO] -----------------------------------------------
+2026-11-22 11:28:01,242 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe\moe_epoch_6.pth
+2026-11-22 11:28:01,243 [INFO] -----------------------------------------------
+2026-11-22 11:38:24,930 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+   Blotchy      99.27      67.13     96.13    99.04
+   Fibrous      99.34      68.58     99.87    99.97
+   Marbled       99.4       67.7     98.81     99.7
+    Matted      98.98      56.49     89.11    97.26
+      Mesh      93.81      49.27     78.61    91.32
+Perforated      94.38      58.85     83.06    95.96
+Stratified      99.23      71.13     98.81    99.75
+ Woven_001      99.73      69.03     99.62    99.84
+ Woven_068      98.17      51.74     96.23    98.17
+ Woven_104      97.59       65.5      99.0    99.78
+ Woven_125      99.41      69.06     98.54     99.7
+ Woven_127      94.76      51.76      96.3    96.98
+   Average  97.839167  62.186667   94.5075  98.1225
+2026-11-22 11:38:24,931 [INFO] ckpt/dual_moe\moe_epoch_7.pth
+2026-11-22 11:38:25,052 [INFO] -----------------------------------------------
+2026-11-22 11:38:25,052 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe\moe_epoch_7.pth
+2026-11-22 11:38:25,053 [INFO] -----------------------------------------------
+2026-11-22 11:48:50,404 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC  image AP
+   Blotchy    99.27       67.37      96.31   99.08 
+   Fibrous    99.27       67.37      99.87   99.97 
+   Marbled    99.37        66.3      99.37   99.84 
+    Matted    98.72       53.83      87.34   96.67 
+      Mesh    95.82       50.07      83.23   93.61 
+Perforated    96.83       58.85      84.44   96.33 
+Stratified    99.38       69.32      98.62   99.72 
+ Woven_001    99.73       69.65      99.76    99.9 
+ Woven_068     98.6       53.67      96.53    98.2 
+ Woven_104    98.31       65.93      99.87   99.97 
+ Woven_125    99.44        68.8      99.24   99.83 
+ Woven_127     95.7       54.63      95.58   96.78 
+   Average    98.37   62.149167  95.013333  98.325 
+2026-11-22 11:48:50,405 [INFO] ckpt/dual_moe\moe_epoch_8.pth
+2026-11-22 11:48:50,540 [INFO] -----------------------------------------------
+2026-11-22 11:48:50,540 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe\moe_epoch_8.pth
+2026-11-22 11:48:50,540 [INFO] -----------------------------------------------
+2026-11-22 11:59:13,378 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+   Blotchy      99.28      69.32      92.06      98.11
+   Fibrous      99.34       69.9      99.56      99.89
+   Marbled      99.45      69.41      99.19       99.8
+    Matted      98.93      56.56       91.9      98.09
+      Mesh      96.95      51.15      83.99      93.83
+Perforated      97.08      61.95      88.63       97.3
+Stratified       99.3      69.16      99.19      99.83
+ Woven_001      99.74      69.68      99.81      99.92
+ Woven_068      98.59      54.85      97.22      98.57
+ Woven_104      98.62      65.88      99.56       99.9
+ Woven_125      99.49      70.19      99.94      99.98
+ Woven_127      96.51      54.54      96.28      97.18
+   Average  98.606667  63.549167  95.610833  98.533333
+2026-11-22 11:59:13,379 [INFO] ckpt/dual_moe\moe_epoch_9.pth
+2026-11-22 11:59:13,511 [INFO] -----------------------------------------------
+2026-11-22 11:59:13,512 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe\moe_epoch_9.pth
+2026-11-22 11:59:13,513 [INFO] -----------------------------------------------
+2026-11-22 12:09:36,448 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+   Blotchy      99.34       69.7     95.06   98.76 
+   Fibrous      99.36      71.23     99.56   99.89 
+   Marbled      99.45      69.99     99.56   99.89 
+    Matted      99.05      57.88     93.48   98.42 
+      Mesh      96.33       51.1     85.94   94.62 
+Perforated      96.96       61.6     86.25   96.72 
+Stratified       99.3      69.05     98.94   99.78 
+ Woven_001      99.72      68.93     99.38   99.76 
+ Woven_068      98.61      54.82      96.5   98.19 
+ Woven_104      98.47      67.17     99.44   99.86 
+ Woven_125      99.52      71.24     99.94   99.98 
+ Woven_127      96.35       55.7     96.06   96.97 
+   Average  98.538333  64.034167   95.8425   98.57 
+2026-11-22 12:09:36,448 [INFO] ckpt/dual_moe\moe_epoch_10.pth
+2026-11-22 12:09:36,580 [INFO] -----------------------------------------------
+2026-11-22 12:09:36,581 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe\moe_epoch_10.pth
+2026-11-22 12:09:36,582 [INFO] -----------------------------------------------
+2026-11-22 12:19:58,177 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+   Blotchy      99.21      68.24      95.56      98.91
+   Fibrous      99.32      68.71      99.62      99.91
+   Marbled      99.35      67.84      98.25      99.58
+    Matted      98.61      56.02      93.35      98.36
+      Mesh      96.75       50.5      88.23      95.23
+Perforated       97.3      60.05      88.87      97.33
+Stratified      99.53      72.14       99.5      99.88
+ Woven_001      99.74      69.83      100.0      100.0
+ Woven_068      98.92      55.64      97.37      98.51
+ Woven_104      98.63      65.06       99.5      99.88
+ Woven_125      99.54       71.9      100.0      100.0
+ Woven_127      96.13      54.53      96.42      97.46
+   Average  98.585833  63.371667  96.389167  98.754167
+2026-11-22 12:19:58,177 [INFO] ckpt/dual_moe\moe_epoch_11.pth
+2026-11-22 12:19:58,311 [INFO] -----------------------------------------------
+2026-11-22 12:19:58,311 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe\moe_epoch_11.pth
+2026-11-22 12:19:58,311 [INFO] -----------------------------------------------
+2026-11-22 12:30:14,166 [INFO] final results:
+class name pixel AUC pixel AP image AUC   image AP 
+   Blotchy    99.33      70.9      96.56      99.14
+   Fibrous    99.37     70.46      99.56      99.89
+   Marbled    99.41     69.93      98.69      99.67
+    Matted    98.82     59.74      93.16      98.31
+      Mesh    97.53     50.41      88.12      95.41
+Perforated    97.86     59.78      88.19      97.16
+Stratified    99.54     72.12      99.69      99.92
+ Woven_001    99.74     68.98      100.0      100.0
+ Woven_068    98.97     57.67      97.52      98.75
+ Woven_104    98.54     64.66       99.5      99.88
+ Woven_125    99.56     73.23      100.0      100.0
+ Woven_127    96.69     56.39      96.48      97.43
+   Average    98.78   64.5225  96.455833  98.796667
+2026-11-22 12:30:14,167 [INFO] ckpt/dual_moe\moe_epoch_12.pth
+2026-11-22 12:30:14,310 [INFO] -----------------------------------------------
+2026-11-22 12:30:14,310 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe\moe_epoch_12.pth
+2026-11-22 12:30:14,310 [INFO] -----------------------------------------------
+2026-11-22 12:40:27,757 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP
+   Blotchy      99.26       69.8      95.19    98.82
+   Fibrous      99.35      71.48      99.44    99.86
+   Marbled      99.37      69.69      98.69    99.67
+    Matted      98.74      58.92      92.09    97.92
+      Mesh      96.74       51.5       87.5    95.13
+Perforated      97.97      60.59      86.81    96.88
+Stratified      99.59      74.58      99.62    99.91
+ Woven_001      99.75      70.74      100.0    100.0
+ Woven_068      98.84      57.85      97.47    98.65
+ Woven_104       98.0      64.22       99.5    99.88
+ Woven_125      99.54      72.41      100.0    100.0
+ Woven_127      96.25      54.94      96.22    97.23
+   Average  98.616667  64.726667  96.044167  98.6625
+2026-11-22 12:40:27,757 [INFO] ckpt/dual_moe\moe_epoch_13.pth
+2026-11-22 12:40:27,884 [INFO] -----------------------------------------------
+2026-11-22 12:40:27,884 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe\moe_epoch_13.pth
+2026-11-22 12:40:27,884 [INFO] -----------------------------------------------
+2026-11-22 12:50:41,696 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC   image AP 
+   Blotchy     99.31      71.27       94.5      98.65
+   Fibrous     99.31      72.49      99.19      99.81
+   Marbled     99.36      69.44      98.44      99.61
+    Matted     98.75      59.75       93.8       98.5
+      Mesh     96.32      51.72      87.22      94.88
+Perforated      97.8      61.72      89.13      97.42
+Stratified      99.6      75.45      99.38      99.85
+ Woven_001     99.76      71.65      99.81      99.92
+ Woven_068     98.64      57.07      97.39       98.6
+ Woven_104     98.11      65.26      99.69      99.92
+ Woven_125     99.53      73.16      100.0      100.0
+ Woven_127     96.08      52.92      95.77      96.87
+   Average   98.5475  65.158333  96.193333  98.669167
+2026-11-22 12:50:41,696 [INFO] ckpt/dual_moe\moe_epoch_14.pth
+2026-11-22 12:50:41,828 [INFO] -----------------------------------------------
+2026-11-22 12:50:41,829 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe\moe_epoch_14.pth
+2026-11-22 12:50:41,829 [INFO] -----------------------------------------------
+2026-11-22 13:00:54,408 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC  image AP 
+   Blotchy    99.24       71.05    95.31       98.84
+   Fibrous     99.2       70.49    98.75        99.7
+   Marbled    99.33       69.21    97.88       99.47
+    Matted    98.23       56.27    90.89       97.58
+      Mesh    95.96        49.7     87.4       94.93
+Perforated    97.63       60.55     89.5       97.54
+Stratified    99.56       73.65    99.62       99.91
+ Woven_001    99.76       71.76    99.76        99.9
+ Woven_068    98.59       55.52    97.82       98.79
+ Woven_104    97.72       64.11    99.38       99.85
+ Woven_125    99.52       72.61    100.0       100.0
+ Woven_127    96.36       52.29    95.69       96.68
+   Average   98.425   63.934167     96.0   98.599167
+2026-11-22 13:00:54,408 [INFO] ckpt/dual_moe\moe_epoch_15.pth
+2026-11-22 13:00:54,534 [INFO] -----------------------------------------------
+2026-11-22 13:00:54,535 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe\moe_epoch_15.pth
+2026-11-22 13:00:54,535 [INFO] -----------------------------------------------
+2026-11-22 13:11:43,067 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+   Blotchy      99.18      69.32      91.94      98.01
+   Fibrous       99.3      71.45      99.13      99.79
+   Marbled      99.31      69.31       97.5      99.38
+    Matted      98.34      57.15      89.94      97.02
+      Mesh       95.5      50.73      87.64       95.1
+Perforated      97.69      59.64      90.38      97.72
+Stratified      99.61      75.69      99.62      99.91
+ Woven_001      99.75      71.99      99.71      99.88
+ Woven_068      98.63      55.71      97.87       98.8
+ Woven_104      97.69      64.92      99.56      99.89
+ Woven_125       99.5      72.15      100.0      100.0
+ Woven_127      96.05      51.16      95.09       96.0
+   Average  98.379167  64.101667  95.698333  98.458333
+2026-11-22 13:11:43,068 [INFO] ckpt/dual_moe\moe_epoch_16.pth
+2026-11-22 13:11:43,199 [INFO] -----------------------------------------------
+2026-11-22 13:11:43,200 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe\moe_epoch_16.pth
+2026-11-22 13:11:43,200 [INFO] -----------------------------------------------
+2026-11-22 13:22:25,973 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC   image AP 
+   Blotchy     99.21      69.68      92.81      98.23
+   Fibrous     99.14      69.41      98.75       99.7
+   Marbled     99.25      68.18      97.19      99.34
+    Matted     98.24      55.99      90.63      97.61
+      Mesh     96.44      49.93      87.33       95.0
+Perforated     97.54      58.97      89.87      97.65
+Stratified     99.56      73.75      99.56      99.89
+ Woven_001     99.76      72.23      99.76       99.9
+ Woven_068     98.62      54.55      97.79      98.83
+ Woven_104     97.76      63.52      99.31      99.84
+ Woven_125      99.5      71.35      100.0      100.0
+ Woven_127     96.41      51.55      94.94      96.03
+   Average   98.4525  63.259167  95.661667  98.501667
+2026-11-22 13:22:25,974 [INFO] ckpt/dual_moe\moe_epoch_17.pth
+2026-11-22 13:22:26,103 [INFO] -----------------------------------------------
+2026-11-22 13:22:26,103 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe\moe_epoch_17.pth
+2026-11-22 13:22:26,103 [INFO] -----------------------------------------------
+2026-11-22 13:32:52,565 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+   Blotchy      99.17      68.21    95.25     98.79
+   Fibrous      99.19      68.74    99.12     99.79
+   Marbled      99.24       68.0    98.37      99.6
+    Matted      98.36      57.87    93.42     98.39
+      Mesh      96.08      50.49    88.89     95.66
+Perforated      97.39      58.89    91.63     98.05
+Stratified      99.54       73.1    99.62     99.91
+ Woven_001      99.74      70.79    99.86     99.94
+ Woven_068      98.33      54.94    97.57     98.72
+ Woven_104      97.18      64.03    99.63     99.91
+ Woven_125      99.49      71.64    100.0     100.0
+ Woven_127       95.4      49.65     94.7     95.91
+   Average  98.259167  63.029167   96.505   98.7225
+2026-11-22 13:32:52,566 [INFO] ckpt/dual_moe\moe_epoch_18.pth
+2026-11-22 13:32:52,701 [INFO] -----------------------------------------------
+2026-11-22 13:32:52,702 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe\moe_epoch_18.pth
+2026-11-22 13:32:52,703 [INFO] -----------------------------------------------
+2026-11-22 13:43:15,293 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+   Blotchy      99.22      69.46    96.13     99.01
+   Fibrous      99.05      68.18    99.06     99.78
+   Marbled      99.23      69.09    97.19     99.33
+    Matted      98.11      57.73    92.85     98.28
+      Mesh      95.77      49.21    87.88     95.27
+Perforated      97.79      59.59    93.56     98.45
+Stratified      99.54      73.18    99.87     99.97
+ Woven_001      99.74      71.36    99.67     99.87
+ Woven_068       98.0      55.16    97.69     98.82
+ Woven_104      97.52      63.99    99.63     99.91
+ Woven_125      99.53      73.16    100.0     100.0
+ Woven_127      95.18       45.7    94.41     95.44
+   Average  98.223333  62.984167   96.495   98.6775
+2026-11-22 13:43:15,293 [INFO] ckpt/dual_moe\moe_epoch_19.pth
+2026-11-22 13:43:15,430 [INFO] -----------------------------------------------
+2026-11-22 13:43:15,431 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe\moe_epoch_19.pth
+2026-11-22 13:43:15,432 [INFO] -----------------------------------------------
+2026-11-22 13:53:36,000 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+   Blotchy      99.19      69.97      94.56      98.66
+   Fibrous      99.15      68.07      99.44      99.86
+   Marbled      99.22      68.27       98.0      99.52
+    Matted      98.58      59.23      94.94      98.84
+      Mesh      96.94       50.5      90.45      96.16
+Perforated      97.96      60.86      92.13      98.13
+Stratified      99.49      71.86      99.81      99.95
+ Woven_001      99.75      71.55      99.86      99.94
+ Woven_068      98.48      56.31      97.77      98.86
+ Woven_104      97.02      62.04      99.56      99.89
+ Woven_125       99.5      72.09      100.0      100.0
+ Woven_127      95.77      48.32      95.34      96.41
+   Average  98.420833  63.255833  96.821667  98.851667
+2026-11-22 13:53:36,000 [INFO] ckpt/dual_moe\moe_epoch_20.pth
+2026-11-22 13:53:36,130 [INFO] -----------------------------------------------
+2026-11-22 13:53:36,130 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe\moe_epoch_20.pth
+2026-11-22 13:53:36,131 [INFO] -----------------------------------------------
+2026-11-22 14:03:56,995 [INFO] final results:
+class name pixel AUC  pixel AP image AUC  image AP 
+   Blotchy      99.27    70.63      97.5      99.39
+   Fibrous      99.28    68.82     99.56      99.89
+   Marbled      99.24    69.14     98.25      99.57
+    Matted      98.73    60.24     95.82      98.98
+      Mesh      96.56    50.51     90.31      96.18
+Perforated      97.24    59.31     90.69      97.82
+Stratified      99.55    72.62     99.81      99.95
+ Woven_001      99.74    71.36      99.9      99.96
+ Woven_068      98.31    55.95     97.49      98.63
+ Woven_104      97.13    62.72     99.69      99.92
+ Woven_125      99.55     73.4     100.0      100.0
+ Woven_127      95.56    47.27     95.91      96.76
+   Average  98.346667  63.4975   97.0775  98.920833

@@ -1,0 +1,166 @@
+2026-11-23 08:17:05,411 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'Colon_Kvasir', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe'}
+2026-11-23 08:17:05,411 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-23 08:17:14,245 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-23 08:17:14,827 [INFO] -----------------------------------------------
+2026-11-23 08:17:14,827 [INFO] dataset: Colon_Kvasir
+2026-11-23 08:17:14,827 [INFO] -----------------------------------------------
+2026-11-23 08:17:14,828 [INFO] ckpt/dual_moe\moe_epoch_1.pth
+2026-11-23 08:17:14,887 [INFO] -----------------------------------------------
+2026-11-23 08:17:14,888 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe\moe_epoch_1.pth
+2026-11-23 08:17:14,888 [INFO] -----------------------------------------------
+2026-11-23 08:23:12,810 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      78.63    42.03      0.0      0.0  
+ Average      78.63    42.03      0.0      0.0  
+2026-11-23 08:23:12,811 [INFO] ckpt/dual_moe\moe_epoch_2.pth
+2026-11-23 08:23:12,997 [INFO] -----------------------------------------------
+2026-11-23 08:23:12,998 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe\moe_epoch_2.pth
+2026-11-23 08:23:12,998 [INFO] -----------------------------------------------
+2026-11-23 08:29:13,250 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      82.55    47.38      0.0      0.0  
+ Average      82.55    47.38      0.0      0.0  
+2026-11-23 08:29:13,251 [INFO] ckpt/dual_moe\moe_epoch_3.pth
+2026-11-23 08:29:13,532 [INFO] -----------------------------------------------
+2026-11-23 08:29:13,532 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe\moe_epoch_3.pth
+2026-11-23 08:29:13,532 [INFO] -----------------------------------------------
+2026-11-23 08:35:12,208 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      83.6     49.44      0.0      0.0  
+ Average      83.6     49.44      0.0      0.0  
+2026-11-23 08:35:12,208 [INFO] ckpt/dual_moe\moe_epoch_4.pth
+2026-11-23 08:35:12,440 [INFO] -----------------------------------------------
+2026-11-23 08:35:12,440 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe\moe_epoch_4.pth
+2026-11-23 08:35:12,440 [INFO] -----------------------------------------------
+2026-11-23 08:41:14,907 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      83.94    49.11      0.0      0.0  
+ Average      83.94    49.11      0.0      0.0  
+2026-11-23 08:41:14,907 [INFO] ckpt/dual_moe\moe_epoch_5.pth
+2026-11-23 08:41:15,144 [INFO] -----------------------------------------------
+2026-11-23 08:41:15,145 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe\moe_epoch_5.pth
+2026-11-23 08:41:15,145 [INFO] -----------------------------------------------
+2026-11-23 08:47:15,045 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      84.31    50.27      0.0      0.0  
+ Average      84.31    50.27      0.0      0.0  
+2026-11-23 08:47:15,045 [INFO] ckpt/dual_moe\moe_epoch_6.pth
+2026-11-23 08:47:15,287 [INFO] -----------------------------------------------
+2026-11-23 08:47:15,287 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe\moe_epoch_6.pth
+2026-11-23 08:47:15,288 [INFO] -----------------------------------------------
+2026-11-23 08:53:18,896 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      83.0     47.84      0.0      0.0  
+ Average      83.0     47.84      0.0      0.0  
+2026-11-23 08:53:18,896 [INFO] ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 08:53:19,128 [INFO] -----------------------------------------------
+2026-11-23 08:53:19,128 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 08:53:19,129 [INFO] -----------------------------------------------
+2026-11-23 08:59:19,820 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      84.35    49.72      0.0      0.0  
+ Average      84.35    49.72      0.0      0.0  
+2026-11-23 08:59:19,820 [INFO] ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 08:59:20,060 [INFO] -----------------------------------------------
+2026-11-23 08:59:20,061 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 08:59:20,061 [INFO] -----------------------------------------------
+2026-11-23 09:05:21,451 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      84.8     49.92      0.0      0.0  
+ Average      84.8     49.92      0.0      0.0  
+2026-11-23 09:05:21,451 [INFO] ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 09:05:21,768 [INFO] -----------------------------------------------
+2026-11-23 09:05:21,769 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 09:05:21,769 [INFO] -----------------------------------------------
+2026-11-23 09:11:23,225 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      84.96    50.66      0.0      0.0  
+ Average      84.96    50.66      0.0      0.0  
+2026-11-23 09:11:23,226 [INFO] ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 09:11:23,465 [INFO] -----------------------------------------------
+2026-11-23 09:11:23,466 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 09:11:23,466 [INFO] -----------------------------------------------
+2026-11-23 09:17:27,523 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      86.28    53.92      0.0      0.0  
+ Average      86.28    53.92      0.0      0.0  
+2026-11-23 09:17:27,524 [INFO] ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 09:17:27,827 [INFO] -----------------------------------------------
+2026-11-23 09:17:27,827 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 09:17:27,827 [INFO] -----------------------------------------------
+2026-11-23 09:23:33,787 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      87.38    56.7       0.0      0.0  
+ Average      87.38    56.7       0.0      0.0  
+2026-11-23 09:23:33,788 [INFO] ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 09:23:34,018 [INFO] -----------------------------------------------
+2026-11-23 09:23:34,018 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 09:23:34,018 [INFO] -----------------------------------------------
+2026-11-23 09:29:32,251 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      87.81    57.83      0.0      0.0  
+ Average      87.81    57.83      0.0      0.0  
+2026-11-23 09:29:32,252 [INFO] ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 09:29:32,499 [INFO] -----------------------------------------------
+2026-11-23 09:29:32,499 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 09:29:32,500 [INFO] -----------------------------------------------
+2026-11-23 09:35:37,464 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      87.59    56.76      0.0      0.0  
+ Average      87.59    56.76      0.0      0.0  
+2026-11-23 09:35:37,464 [INFO] ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 09:35:37,768 [INFO] -----------------------------------------------
+2026-11-23 09:35:37,768 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 09:35:37,769 [INFO] -----------------------------------------------
+2026-11-23 09:41:38,692 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      88.05    57.42      0.0      0.0  
+ Average      88.05    57.42      0.0      0.0  
+2026-11-23 09:41:38,693 [INFO] ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 09:41:38,986 [INFO] -----------------------------------------------
+2026-11-23 09:41:38,987 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 09:41:38,987 [INFO] -----------------------------------------------
+2026-11-23 09:47:41,154 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      88.37    58.77      0.0      0.0  
+ Average      88.37    58.77      0.0      0.0  
+2026-11-23 09:47:41,154 [INFO] ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 09:47:41,393 [INFO] -----------------------------------------------
+2026-11-23 09:47:41,394 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 09:47:41,394 [INFO] -----------------------------------------------
+2026-11-23 09:54:20,717 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      88.45    58.81      0.0      0.0  
+ Average      88.45    58.81      0.0      0.0  
+2026-11-23 09:54:20,718 [INFO] ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 09:54:20,949 [INFO] -----------------------------------------------
+2026-11-23 09:54:20,949 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 09:54:20,950 [INFO] -----------------------------------------------
+2026-11-23 10:00:20,897 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      87.25    55.84      0.0      0.0  
+ Average      87.25    55.84      0.0      0.0  
+2026-11-23 10:00:20,898 [INFO] ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 10:00:21,138 [INFO] -----------------------------------------------
+2026-11-23 10:00:21,138 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 10:00:21,139 [INFO] -----------------------------------------------
+2026-11-23 10:06:19,474 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      88.08    57.64      0.0      0.0  
+ Average      88.08    57.64      0.0      0.0  
+2026-11-23 10:06:19,475 [INFO] ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 10:06:19,774 [INFO] -----------------------------------------------
+2026-11-23 10:06:19,774 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 10:06:19,775 [INFO] -----------------------------------------------
+2026-11-23 10:12:22,222 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      87.89    57.95      0.0      0.0  
+ Average      87.89    57.95      0.0      0.0  
+2026-11-23 10:12:22,222 [INFO] ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 10:12:22,473 [INFO] -----------------------------------------------
+2026-11-23 10:12:22,474 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 10:12:22,474 [INFO] -----------------------------------------------
+2026-11-23 10:18:24,860 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+  Kvasir      87.39    56.13      0.0      0.0  
+ Average      87.39    56.13      0.0      0.0  

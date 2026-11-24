@@ -1,0 +1,166 @@
+2026-11-22 23:13:56,592 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'Liver', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe'}
+2026-11-22 23:13:56,593 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-22 23:14:09,615 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-22 23:14:10,277 [INFO] -----------------------------------------------
+2026-11-22 23:14:10,277 [INFO] dataset: Liver
+2026-11-22 23:14:10,278 [INFO] -----------------------------------------------
+2026-11-22 23:14:10,278 [INFO] ckpt/dual_moe\moe_epoch_1.pth
+2026-11-22 23:14:11,152 [INFO] -----------------------------------------------
+2026-11-22 23:14:11,152 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe\moe_epoch_1.pth
+2026-11-22 23:14:11,152 [INFO] -----------------------------------------------
+2026-11-22 23:23:07,742 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.59    9.23      75.78    68.65 
+ Average      96.59    9.23      75.78    68.65 
+2026-11-22 23:23:07,742 [INFO] ckpt/dual_moe\moe_epoch_2.pth
+2026-11-22 23:23:08,136 [INFO] -----------------------------------------------
+2026-11-22 23:23:08,136 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe\moe_epoch_2.pth
+2026-11-22 23:23:08,137 [INFO] -----------------------------------------------
+2026-11-22 23:31:56,216 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.4     7.87      70.46    62.83 
+ Average      96.4     7.87      70.46    62.83 
+2026-11-22 23:31:56,216 [INFO] ckpt/dual_moe\moe_epoch_3.pth
+2026-11-22 23:31:56,863 [INFO] -----------------------------------------------
+2026-11-22 23:31:56,864 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe\moe_epoch_3.pth
+2026-11-22 23:31:56,864 [INFO] -----------------------------------------------
+2026-11-22 23:40:40,696 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.18    6.91      67.89    57.89 
+ Average      96.18    6.91      67.89    57.89 
+2026-11-22 23:40:40,696 [INFO] ckpt/dual_moe\moe_epoch_4.pth
+2026-11-22 23:40:41,257 [INFO] -----------------------------------------------
+2026-11-22 23:40:41,257 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe\moe_epoch_4.pth
+2026-11-22 23:40:41,257 [INFO] -----------------------------------------------
+2026-11-22 23:49:35,622 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.48    6.56      68.79    60.74 
+ Average      96.48    6.56      68.79    60.74 
+2026-11-22 23:49:35,623 [INFO] ckpt/dual_moe\moe_epoch_5.pth
+2026-11-22 23:49:36,225 [INFO] -----------------------------------------------
+2026-11-22 23:49:36,225 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe\moe_epoch_5.pth
+2026-11-22 23:49:36,226 [INFO] -----------------------------------------------
+2026-11-22 23:58:07,195 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.41    6.53      66.22    58.13 
+ Average      96.41    6.53      66.22    58.13 
+2026-11-22 23:58:07,196 [INFO] ckpt/dual_moe\moe_epoch_6.pth
+2026-11-22 23:58:07,798 [INFO] -----------------------------------------------
+2026-11-22 23:58:07,799 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe\moe_epoch_6.pth
+2026-11-22 23:58:07,799 [INFO] -----------------------------------------------
+2026-11-23 00:06:45,817 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.88    7.39      67.59    59.63 
+ Average      96.88    7.39      67.59    59.63 
+2026-11-23 00:06:45,817 [INFO] ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 00:06:46,361 [INFO] -----------------------------------------------
+2026-11-23 00:06:46,361 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe\moe_epoch_7.pth
+2026-11-23 00:06:46,362 [INFO] -----------------------------------------------
+2026-11-23 00:15:28,246 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.83    6.77      62.26    55.74 
+ Average      96.83    6.77      62.26    55.74 
+2026-11-23 00:15:28,247 [INFO] ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 00:15:28,888 [INFO] -----------------------------------------------
+2026-11-23 00:15:28,889 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe\moe_epoch_8.pth
+2026-11-23 00:15:28,889 [INFO] -----------------------------------------------
+2026-11-23 00:23:55,176 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.65    6.51      64.94    56.93 
+ Average      96.65    6.51      64.94    56.93 
+2026-11-23 00:23:55,176 [INFO] ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 00:23:55,736 [INFO] -----------------------------------------------
+2026-11-23 00:23:55,736 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe\moe_epoch_9.pth
+2026-11-23 00:23:55,737 [INFO] -----------------------------------------------
+2026-11-23 00:32:56,733 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.96    7.37      62.83    55.85 
+ Average      96.96    7.37      62.83    55.85 
+2026-11-23 00:32:56,733 [INFO] ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 00:32:57,254 [INFO] -----------------------------------------------
+2026-11-23 00:32:57,254 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe\moe_epoch_10.pth
+2026-11-23 00:32:57,255 [INFO] -----------------------------------------------
+2026-11-23 00:41:42,133 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      96.94    7.26      63.69    55.46 
+ Average      96.94    7.26      63.69    55.46 
+2026-11-23 00:41:42,133 [INFO] ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 00:41:42,734 [INFO] -----------------------------------------------
+2026-11-23 00:41:42,735 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe\moe_epoch_11.pth
+2026-11-23 00:41:42,736 [INFO] -----------------------------------------------
+2026-11-23 00:50:13,304 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.21    7.74      64.04    55.19 
+ Average      97.21    7.74      64.04    55.19 
+2026-11-23 00:50:13,304 [INFO] ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 00:50:13,916 [INFO] -----------------------------------------------
+2026-11-23 00:50:13,917 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe\moe_epoch_12.pth
+2026-11-23 00:50:13,918 [INFO] -----------------------------------------------
+2026-11-23 00:59:14,657 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.26    7.65      63.37    55.36 
+ Average      97.26    7.65      63.37    55.36 
+2026-11-23 00:59:14,658 [INFO] ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 00:59:15,229 [INFO] -----------------------------------------------
+2026-11-23 00:59:15,229 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe\moe_epoch_13.pth
+2026-11-23 00:59:15,230 [INFO] -----------------------------------------------
+2026-11-23 01:08:06,008 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.39    8.36      65.57    56.07 
+ Average      97.39    8.36      65.57    56.07 
+2026-11-23 01:08:06,010 [INFO] ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 01:08:06,326 [INFO] -----------------------------------------------
+2026-11-23 01:08:06,326 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe\moe_epoch_14.pth
+2026-11-23 01:08:06,327 [INFO] -----------------------------------------------
+2026-11-23 01:16:41,926 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.36    7.97      62.97    53.96 
+ Average      97.36    7.97      62.97    53.96 
+2026-11-23 01:16:41,926 [INFO] ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 01:16:42,235 [INFO] -----------------------------------------------
+2026-11-23 01:16:42,236 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe\moe_epoch_15.pth
+2026-11-23 01:16:42,236 [INFO] -----------------------------------------------
+2026-11-23 01:25:22,858 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.58    9.04      65.67    57.32 
+ Average      97.58    9.04      65.67    57.32 
+2026-11-23 01:25:22,859 [INFO] ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 01:25:23,170 [INFO] -----------------------------------------------
+2026-11-23 01:25:23,170 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe\moe_epoch_16.pth
+2026-11-23 01:25:23,172 [INFO] -----------------------------------------------
+2026-11-23 01:33:58,585 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.64    9.25      65.89    56.99 
+ Average      97.64    9.25      65.89    56.99 
+2026-11-23 01:33:58,586 [INFO] ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 01:33:58,988 [INFO] -----------------------------------------------
+2026-11-23 01:33:58,989 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe\moe_epoch_17.pth
+2026-11-23 01:33:58,989 [INFO] -----------------------------------------------
+2026-11-23 01:42:40,026 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.63    8.98      64.01    56.21 
+ Average      97.63    8.98      64.01    56.21 
+2026-11-23 01:42:40,027 [INFO] ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 01:42:40,339 [INFO] -----------------------------------------------
+2026-11-23 01:42:40,340 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe\moe_epoch_18.pth
+2026-11-23 01:42:40,340 [INFO] -----------------------------------------------
+2026-11-23 01:51:29,478 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.71    9.43      63.8     55.91 
+ Average      97.71    9.43      63.8     55.91 
+2026-11-23 01:51:29,478 [INFO] ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 01:51:29,876 [INFO] -----------------------------------------------
+2026-11-23 01:51:29,876 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe\moe_epoch_19.pth
+2026-11-23 01:51:29,876 [INFO] -----------------------------------------------
+2026-11-23 02:00:07,592 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.69    8.99      62.83    55.56 
+ Average      97.69    8.99      62.83    55.56 
+2026-11-23 02:00:07,592 [INFO] ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 02:00:08,008 [INFO] -----------------------------------------------
+2026-11-23 02:00:08,009 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe\moe_epoch_20.pth
+2026-11-23 02:00:08,009 [INFO] -----------------------------------------------
+2026-11-23 02:09:03,167 [INFO] final results:
+class name pixel AUC pixel AP image AUC image AP
+   Liver      97.68    8.98      61.69    55.41 
+ Average      97.68    8.98      61.69    55.41 

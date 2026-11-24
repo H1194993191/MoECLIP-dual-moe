@@ -1,0 +1,386 @@
+2026-11-21 15:30:41,081 [INFO] args: {'model_name': 'ViT-L-14-336', 'img_size': 518, 'relu': False, 'no_use_paa': True, 'seg_proj_sharing_strategy': 'shared', 'moe_r': 8, 'moe_lora_alpha': 16, 'moe_num_experts': 4, 'moe_top_k': 2, 'text_moe_r': 8, 'text_moe_lora_alpha': 16, 'text_moe_num_experts': 4, 'text_moe_top_k': 2, 'moe_layers': '5,11,17,23', 'text_moe_layers': '8,11', 'no_use_fofs': True, 'dataset': 'VisA', 'shot': 4, 'batch_size': 8, 'seed': 111, 'visual_path': 'ckpt/baseline', 'visualize': False, 'image_adapt_weight': 0.1, 'text_adapt_weight': 0.1, 'save_path': 'ckpt/dual_moe_mvtec'}
+2026-11-21 15:30:41,082 [INFO] Loading pretrained ViT-L-14-336 from OpenAI.
+2026-11-21 15:30:49,662 [INFO] Resizing position embedding grid-size from (24, 24) to (37, 37)
+2026-11-21 15:30:50,212 [INFO] -----------------------------------------------
+2026-11-21 15:30:50,212 [INFO] dataset: VisA
+2026-11-21 15:30:50,213 [INFO] -----------------------------------------------
+2026-11-21 15:30:50,213 [INFO] ckpt/dual_moe_mvtec\moe_epoch_1.pth
+2026-11-21 15:30:50,334 [INFO] -----------------------------------------------
+2026-11-21 15:30:50,334 [INFO] Successfully loaded model from epoch 1 from ckpt/dual_moe_mvtec\moe_epoch_1.pth
+2026-11-21 15:30:50,335 [INFO] -----------------------------------------------
+2026-11-21 15:47:34,973 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC image AP
+    candle     98.59       33.3    87.37     90.55
+      pcb3     91.26      16.45    65.97     69.82
+  capsules     96.74      36.48    75.35     86.34
+pipe_fryum     95.97      23.51    91.56     96.23
+      pcb4     96.75      33.33    93.74     93.86
+ macaroni2     96.89        0.9    61.53     61.74
+      pcb2     91.92      10.04    75.81     76.73
+chewinggum     99.51      75.65    98.28     99.26
+ macaroni1     98.75      11.45    79.35     82.11
+    cashew     94.22      27.09     70.8     86.67
+     fryum     93.29       22.4     81.6     91.75
+      pcb1      91.9       6.86    76.84     82.09
+   Average   95.4825  24.788333    79.85   84.7625
+2026-11-21 15:47:34,973 [INFO] ckpt/dual_moe_mvtec\moe_epoch_2.pth
+2026-11-21 15:47:35,085 [INFO] -----------------------------------------------
+2026-11-21 15:47:35,085 [INFO] Successfully loaded model from epoch 2 from ckpt/dual_moe_mvtec\moe_epoch_2.pth
+2026-11-21 15:47:35,085 [INFO] -----------------------------------------------
+2026-11-21 16:04:21,121 [INFO] final results:
+class name pixel AUC pixel AP image AUC   image AP 
+    candle     98.42   34.27        87.0      90.59
+      pcb3     91.01    19.8        72.2      74.25
+  capsules     97.15   40.17       74.43      85.32
+pipe_fryum     96.73   28.48       91.04      95.88
+      pcb4     95.99   29.73       91.49      91.89
+ macaroni2     96.32    0.66        61.0      60.97
+      pcb2      91.9   11.15       77.95      79.14
+chewinggum     99.49   75.78       96.42      98.36
+ macaroni1     97.83   10.34       75.86      79.67
+    cashew     94.08   27.07       67.66      84.78
+     fryum     93.46   23.42       83.38      92.24
+      pcb1     91.97    9.03       64.75      70.76
+   Average   95.3625  25.825   78.598333  83.654167
+2026-11-21 16:04:21,122 [INFO] ckpt/dual_moe_mvtec\moe_epoch_3.pth
+2026-11-21 16:04:21,231 [INFO] -----------------------------------------------
+2026-11-21 16:04:21,232 [INFO] Successfully loaded model from epoch 3 from ckpt/dual_moe_mvtec\moe_epoch_3.pth
+2026-11-21 16:04:21,232 [INFO] -----------------------------------------------
+2026-11-21 16:21:06,650 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+    candle      98.63      34.15     85.67    90.14
+      pcb3      90.84      19.59     70.01    72.37
+  capsules      96.93      39.55     71.98    84.47
+pipe_fryum      96.98      31.52     91.66    96.38
+      pcb4      95.58      24.47     88.59    89.47
+ macaroni2      96.38       0.66     62.26    61.27
+      pcb2      92.09      12.62     79.09    80.32
+chewinggum      99.47      75.75     96.98    98.74
+ macaroni1       97.8       9.68     79.15    81.59
+    cashew      94.18      27.49     64.42    82.59
+     fryum      93.46      23.95     82.46    91.62
+      pcb1      92.18      11.09     59.32    64.73
+   Average  95.376667  25.876667   77.6325  82.8075
+2026-11-21 16:21:06,650 [INFO] ckpt/dual_moe_mvtec\moe_epoch_4.pth
+2026-11-21 16:21:06,757 [INFO] -----------------------------------------------
+2026-11-21 16:21:06,757 [INFO] Successfully loaded model from epoch 4 from ckpt/dual_moe_mvtec\moe_epoch_4.pth
+2026-11-21 16:21:06,757 [INFO] -----------------------------------------------
+2026-11-21 16:37:48,132 [INFO] final results:
+class name pixel AUC  pixel AP image AUC   image AP 
+    candle      98.42   34.68       82.74      88.72
+      pcb3      91.18   18.15       71.38       73.2
+  capsules      97.17   39.74       73.85      85.13
+pipe_fryum      96.81   27.94       92.96      96.83
+      pcb4      95.38   22.69       90.69      91.68
+ macaroni2      96.56    0.68       61.77      60.72
+      pcb2      91.87   12.16       78.41      79.52
+chewinggum      99.49   76.64        96.0      98.29
+ macaroni1      97.93   10.41       79.56      81.39
+    cashew      94.19   27.89       71.08      86.08
+     fryum      93.43    23.1       84.08      92.25
+      pcb1      91.82    9.28       74.32      77.47
+   Average  95.354167   25.28   79.736667  84.273333
+2026-11-21 16:37:48,133 [INFO] ckpt/dual_moe_mvtec\moe_epoch_5.pth
+2026-11-21 16:37:48,244 [INFO] -----------------------------------------------
+2026-11-21 16:37:48,244 [INFO] Successfully loaded model from epoch 5 from ckpt/dual_moe_mvtec\moe_epoch_5.pth
+2026-11-21 16:37:48,245 [INFO] -----------------------------------------------
+2026-11-21 16:54:36,626 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    candle      98.31      33.05      84.26      88.88
+      pcb3      90.63      16.52      70.13      72.07
+  capsules      97.25      39.66      74.02      84.86
+pipe_fryum      97.14      29.31       93.4      97.03
+      pcb4      95.53      22.82      88.09      89.43
+ macaroni2      96.68       0.72      63.39       60.7
+      pcb2      91.53      11.87      78.84      80.79
+chewinggum      99.48       76.1      95.78      98.19
+ macaroni1      98.02      10.36       78.7      80.43
+    cashew      95.13      31.77      75.22      87.92
+     fryum      93.35      22.76      84.72      92.76
+      pcb1      92.45       7.26      72.87       76.1
+   Average  95.458333  25.183333  79.951667  84.096667
+2026-11-21 16:54:36,627 [INFO] ckpt/dual_moe_mvtec\moe_epoch_6.pth
+2026-11-21 16:54:36,734 [INFO] -----------------------------------------------
+2026-11-21 16:54:36,735 [INFO] Successfully loaded model from epoch 6 from ckpt/dual_moe_mvtec\moe_epoch_6.pth
+2026-11-21 16:54:36,735 [INFO] -----------------------------------------------
+2026-11-21 17:11:21,044 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC  image AP 
+    candle     98.43       32.4    86.32       90.45
+      pcb3     90.74       19.3    73.67       75.49
+  capsules     96.99      38.14    77.65       86.58
+pipe_fryum     97.03      27.94    94.54       97.48
+      pcb4     95.38      23.59     91.6       92.26
+ macaroni2     96.36       0.67    64.93       62.78
+      pcb2     91.18      11.08    75.16       76.59
+chewinggum      99.5       76.3    95.34       98.04
+ macaroni1     97.93       9.61    80.16       81.61
+    cashew     95.02      30.05    80.32       90.46
+     fryum     93.27      22.85    85.14       93.04
+      pcb1     92.28       8.77    68.97        70.5
+   Average   95.3425  25.058333    81.15   84.606667
+2026-11-21 17:11:21,045 [INFO] ckpt/dual_moe_mvtec\moe_epoch_7.pth
+2026-11-21 17:11:21,156 [INFO] -----------------------------------------------
+2026-11-21 17:11:21,157 [INFO] Successfully loaded model from epoch 7 from ckpt/dual_moe_mvtec\moe_epoch_7.pth
+2026-11-21 17:11:21,158 [INFO] -----------------------------------------------
+2026-11-21 17:28:18,874 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    candle      98.52      31.78      86.43      90.15
+      pcb3      91.18      20.05      73.24      75.41
+  capsules      97.49      39.39      76.98      86.73
+pipe_fryum      96.96      27.49      95.64      97.93
+      pcb4      95.81      25.95      93.66      93.82
+ macaroni2      96.65       0.71      63.83      61.77
+      pcb2      91.46      11.84      78.48      80.36
+chewinggum      99.54      76.69       96.3      98.48
+ macaroni1      98.12      10.43      81.73      83.25
+    cashew       94.9      27.78      77.58      88.98
+     fryum      93.13      21.84       85.4      93.16
+      pcb1      91.89       7.96      69.49      72.11
+   Average  95.470833  25.159167  81.563333  85.179167
+2026-11-21 17:28:18,875 [INFO] ckpt/dual_moe_mvtec\moe_epoch_8.pth
+2026-11-21 17:28:18,992 [INFO] -----------------------------------------------
+2026-11-21 17:28:18,993 [INFO] Successfully loaded model from epoch 8 from ckpt/dual_moe_mvtec\moe_epoch_8.pth
+2026-11-21 17:28:18,993 [INFO] -----------------------------------------------
+2026-11-21 17:46:53,753 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC image AP
+    candle      98.52      33.76     87.73    91.14
+      pcb3      91.12      19.71     76.36    77.05
+  capsules      96.43      32.96     77.03    86.29
+pipe_fryum      97.21      29.13     95.92    98.01
+      pcb4       95.3      22.29     92.55    92.65
+ macaroni2      96.62       0.71     64.03    61.99
+      pcb2      91.55      11.61      80.0    81.67
+chewinggum      99.46      75.99     96.36     98.5
+ macaroni1      98.06       9.69     81.66    82.75
+    cashew      94.61      26.41     80.72    90.52
+     fryum       93.4      23.41     88.98    94.76
+      pcb1      91.82       7.18     68.33    69.74
+   Average  95.341667  24.404167   82.4725  85.4225
+2026-11-21 17:46:53,754 [INFO] ckpt/dual_moe_mvtec\moe_epoch_9.pth
+2026-11-21 17:46:53,871 [INFO] -----------------------------------------------
+2026-11-21 17:46:53,871 [INFO] Successfully loaded model from epoch 9 from ckpt/dual_moe_mvtec\moe_epoch_9.pth
+2026-11-21 17:46:53,871 [INFO] -----------------------------------------------
+2026-11-21 18:05:26,305 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC   image AP 
+    candle     98.48      35.49      88.59      91.94
+      pcb3     90.75      20.04      76.71      77.89
+  capsules     97.37      37.15      78.27      87.18
+pipe_fryum     97.29      28.42      95.38      97.72
+      pcb4     95.14      22.93      93.13      93.23
+ macaroni2     96.03       0.64      62.13      61.14
+      pcb2     91.67      11.96       81.5      82.25
+chewinggum      99.4      77.77       96.2      98.42
+ macaroni1     97.74       8.39       80.0      82.72
+    cashew     95.32      29.81      82.22      91.32
+     fryum     93.45      24.44      89.64      95.08
+      pcb1     90.75        5.2      68.25       68.5
+   Average   95.2825  25.186667  82.668333  85.615833
+2026-11-21 18:05:26,306 [INFO] ckpt/dual_moe_mvtec\moe_epoch_10.pth
+2026-11-21 18:05:26,427 [INFO] -----------------------------------------------
+2026-11-21 18:05:26,427 [INFO] Successfully loaded model from epoch 10 from ckpt/dual_moe_mvtec\moe_epoch_10.pth
+2026-11-21 18:05:26,427 [INFO] -----------------------------------------------
+2026-11-21 18:23:59,016 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP
+    candle      98.65      34.97      89.17    92.14
+      pcb3      90.58      19.38      75.45    77.26
+  capsules      97.45      36.38      78.12    87.17
+pipe_fryum      97.39      29.58      96.72    98.52
+      pcb4      95.23      22.25      94.17    94.08
+ macaroni2      96.61       0.65      63.89    62.29
+      pcb2      91.12      10.66       80.9    81.95
+chewinggum       99.2       77.5       96.4    98.48
+ macaroni1      98.38      10.59      80.13     82.2
+    cashew      95.66      32.49      84.34    92.49
+     fryum      93.55      24.47      89.36    94.96
+      pcb1      91.24       5.87      78.56    78.05
+   Average  95.421667  25.399167  83.934167  86.6325
+2026-11-21 18:23:59,016 [INFO] ckpt/dual_moe_mvtec\moe_epoch_11.pth
+2026-11-21 18:23:59,127 [INFO] -----------------------------------------------
+2026-11-21 18:23:59,128 [INFO] Successfully loaded model from epoch 11 from ckpt/dual_moe_mvtec\moe_epoch_11.pth
+2026-11-21 18:23:59,128 [INFO] -----------------------------------------------
+2026-11-21 18:42:26,650 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC   image AP 
+    candle    98.58       33.08      89.12      92.11
+      pcb3    91.03        20.8       75.8      76.76
+  capsules    97.34       37.88       80.9      88.49
+pipe_fryum    97.21       26.99      95.14      97.81
+      pcb4    94.95       21.22      91.86      91.74
+ macaroni2    96.13        0.64      66.09       63.9
+      pcb2    91.14       10.34       80.8      81.31
+chewinggum    99.35       77.88      96.68      98.59
+ macaroni1    97.79        9.28      78.84      81.21
+    cashew    95.61       30.93      84.32      92.75
+     fryum    93.41        23.8      91.86      96.11
+      pcb1    90.82        5.76      76.13      74.78
+   Average    95.28   24.883333  83.961667  86.296667
+2026-11-21 18:42:26,650 [INFO] ckpt/dual_moe_mvtec\moe_epoch_12.pth
+2026-11-21 18:42:26,763 [INFO] -----------------------------------------------
+2026-11-21 18:42:26,764 [INFO] Successfully loaded model from epoch 12 from ckpt/dual_moe_mvtec\moe_epoch_12.pth
+2026-11-21 18:42:26,764 [INFO] -----------------------------------------------
+2026-11-21 19:00:54,292 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    candle      98.62      34.97      87.38      90.79
+      pcb3      90.93      20.39       78.3      79.27
+  capsules      97.63      39.36      81.12      88.97
+pipe_fryum      97.52      31.23       95.8      98.15
+      pcb4      95.47      23.18      87.84      87.34
+ macaroni2      96.54        0.7      63.22      61.71
+      pcb2      91.62      11.66      81.15      82.56
+chewinggum      99.28      77.77      96.44      98.55
+ macaroni1      98.13       9.84      77.58      81.16
+    cashew      95.87      32.84      87.44      94.25
+     fryum       93.7      25.29      91.28      95.95
+      pcb1       91.1       5.45      80.59      79.64
+   Average  95.534167  26.056667  84.011667  86.528333
+2026-11-21 19:00:54,292 [INFO] ckpt/dual_moe_mvtec\moe_epoch_13.pth
+2026-11-21 19:00:54,404 [INFO] -----------------------------------------------
+2026-11-21 19:00:54,404 [INFO] Successfully loaded model from epoch 13 from ckpt/dual_moe_mvtec\moe_epoch_13.pth
+2026-11-21 19:00:54,405 [INFO] -----------------------------------------------
+2026-11-21 19:19:22,923 [INFO] final results:
+class name pixel AUC  pixel AP image AUC  image AP 
+    candle      98.42    35.43    86.85       90.44
+      pcb3      91.08    21.36    76.52       78.17
+  capsules      97.32    38.08    81.02       89.05
+pipe_fryum      97.49    31.03     96.0       98.22
+      pcb4      95.64    24.36    86.52       85.96
+ macaroni2      96.47     0.72    61.43       60.25
+      pcb2      91.31     9.94    77.37       78.74
+chewinggum      99.13    77.09    96.14       98.44
+ macaroni1      98.06    10.57    76.04        79.6
+    cashew      95.28    29.51    87.22       93.96
+     fryum      93.73    25.67    92.86       96.62
+      pcb1      90.56     5.15    80.67       79.68
+   Average  95.374167  25.7425    83.22   85.760833
+2026-11-21 19:19:22,924 [INFO] ckpt/dual_moe_mvtec\moe_epoch_14.pth
+2026-11-21 19:19:23,046 [INFO] -----------------------------------------------
+2026-11-21 19:19:23,046 [INFO] Successfully loaded model from epoch 14 from ckpt/dual_moe_mvtec\moe_epoch_14.pth
+2026-11-21 19:19:23,047 [INFO] -----------------------------------------------
+2026-11-21 19:37:56,155 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC  image AP 
+    candle     98.58      34.14     87.74      91.02
+      pcb3     91.03      19.15     76.82      77.84
+  capsules     97.34      37.64     82.87      90.26
+pipe_fryum     97.47      30.62      96.8      98.54
+      pcb4     95.34      23.24     89.42      89.07
+ macaroni2     96.78       0.84     65.21      63.14
+      pcb2      91.1      10.78     79.93      81.31
+chewinggum     99.19      77.85      96.6      98.64
+ macaroni1     98.22      10.93     77.81      80.47
+    cashew     95.58      30.99     85.76      93.19
+     fryum     94.06       27.3      92.6      96.48
+      pcb1     90.62       4.49     83.79       83.7
+   Average   95.4425  25.664167   84.6125  86.971667
+2026-11-21 19:37:56,156 [INFO] ckpt/dual_moe_mvtec\moe_epoch_15.pth
+2026-11-21 19:37:56,263 [INFO] -----------------------------------------------
+2026-11-21 19:37:56,264 [INFO] Successfully loaded model from epoch 15 from ckpt/dual_moe_mvtec\moe_epoch_15.pth
+2026-11-21 19:37:56,264 [INFO] -----------------------------------------------
+2026-11-21 19:56:24,336 [INFO] final results:
+class name pixel AUC  pixel AP image AUC   image AP 
+    candle      98.47   35.92       87.62      91.08
+      pcb3      91.17   20.07        76.9      78.71
+  capsules      97.28   35.83       86.88      92.28
+pipe_fryum      97.38   30.28       96.08      98.13
+      pcb4      95.39   23.49       89.17      89.12
+ macaroni2      96.47    0.63       62.09      59.27
+      pcb2      90.98   10.33       78.43      79.59
+chewinggum      99.14   77.07       97.08      98.77
+ macaroni1      97.92   10.97       78.44      81.32
+    cashew       95.1   29.69       88.52      94.64
+     fryum      93.98   26.95       91.96      96.22
+      pcb1      89.86    5.07       82.16      82.04
+   Average  95.261667  25.525   84.610833  86.764167
+2026-11-21 19:56:24,337 [INFO] ckpt/dual_moe_mvtec\moe_epoch_16.pth
+2026-11-21 19:56:24,442 [INFO] -----------------------------------------------
+2026-11-21 19:56:24,443 [INFO] Successfully loaded model from epoch 16 from ckpt/dual_moe_mvtec\moe_epoch_16.pth
+2026-11-21 19:56:24,443 [INFO] -----------------------------------------------
+2026-11-21 20:14:55,226 [INFO] final results:
+class name pixel AUC  pixel AP image AUC   image AP 
+    candle      98.33    34.86      86.91      90.29
+      pcb3      91.03    19.95      77.14      78.33
+  capsules      96.31    32.16      81.67      89.35
+pipe_fryum      97.37    30.95       96.1      98.21
+      pcb4      94.76    19.19       85.3      84.77
+ macaroni2      96.18     0.57      60.56      59.04
+      pcb2       91.4    10.72      76.89      77.65
+chewinggum       99.2    76.89      97.04      98.78
+ macaroni1      97.63    10.16      75.79      78.83
+    cashew      94.83    27.66      88.42      94.73
+     fryum      93.76    25.85      93.36       96.8
+      pcb1      90.21     3.99      82.77      82.29
+   Average  95.084167  24.4125  83.495833  85.755833
+2026-11-21 20:14:55,227 [INFO] ckpt/dual_moe_mvtec\moe_epoch_17.pth
+2026-11-21 20:14:55,349 [INFO] -----------------------------------------------
+2026-11-21 20:14:55,350 [INFO] Successfully loaded model from epoch 17 from ckpt/dual_moe_mvtec\moe_epoch_17.pth
+2026-11-21 20:14:55,350 [INFO] -----------------------------------------------
+2026-11-21 20:32:41,790 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP 
+    candle      98.37      34.68     86.71      90.06
+      pcb3      90.99      21.28     77.13      78.47
+  capsules      96.75      34.96     82.82      90.27
+pipe_fryum      97.64       32.7     96.26      98.35
+      pcb4      94.95      20.89     86.26      86.54
+ macaroni2      96.33       0.57     60.02      58.89
+      pcb2      90.97      10.36     77.77      78.67
+chewinggum      99.18      76.84     97.04      98.77
+ macaroni1      97.66      10.62      74.4      75.97
+    cashew      94.82      29.44     87.44      94.14
+     fryum      94.03      26.57     93.18      96.74
+      pcb1       90.0        4.5     85.04      85.14
+   Average  95.140833  25.284167   83.6725  86.000833
+2026-11-21 20:32:41,791 [INFO] ckpt/dual_moe_mvtec\moe_epoch_18.pth
+2026-11-21 20:32:41,906 [INFO] -----------------------------------------------
+2026-11-21 20:32:41,906 [INFO] Successfully loaded model from epoch 18 from ckpt/dual_moe_mvtec\moe_epoch_18.pth
+2026-11-21 20:32:41,906 [INFO] -----------------------------------------------
+2026-11-21 20:51:06,431 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC   image AP 
+    candle      98.44      35.39      87.31      90.61
+      pcb3      90.97      19.25      77.74      78.97
+  capsules      96.78      34.26      84.05      90.98
+pipe_fryum      97.54      31.22      96.44      98.39
+      pcb4      95.39      23.05      86.41      86.19
+ macaroni2      96.45       0.76      62.32      62.26
+      pcb2      91.05      11.19      76.59      77.04
+chewinggum      99.11      76.36      97.16      98.83
+ macaroni1      98.09      11.63      74.33      76.77
+    cashew      95.22      28.93      88.94      94.87
+     fryum      94.21      26.89      93.34       96.8
+      pcb1      88.96       3.81      85.09      85.53
+   Average  95.184167  25.228333  84.143333  86.436667
+2026-11-21 20:51:06,432 [INFO] ckpt/dual_moe_mvtec\moe_epoch_19.pth
+2026-11-21 20:51:06,554 [INFO] -----------------------------------------------
+2026-11-21 20:51:06,554 [INFO] Successfully loaded model from epoch 19 from ckpt/dual_moe_mvtec\moe_epoch_19.pth
+2026-11-21 20:51:06,554 [INFO] -----------------------------------------------
+2026-11-21 21:09:35,357 [INFO] final results:
+class name pixel AUC  pixel AP  image AUC   image AP 
+    candle    98.32       36.85      86.49      89.96
+      pcb3    90.88       19.44      77.38      79.06
+  capsules    96.75       34.02      83.68      90.84
+pipe_fryum     97.5       32.49      96.48      98.43
+      pcb4    95.19       22.15      85.83       85.6
+ macaroni2    96.27        0.58      61.75      59.55
+      pcb2    91.37       11.28      76.53      76.86
+chewinggum    99.04       77.15      97.34      98.91
+ macaroni1    97.84       10.59       74.2      76.58
+    cashew    94.96       27.69       88.2       94.4
+     fryum    94.24        27.8      93.24      96.75
+      pcb1    89.86        4.26      85.61      85.74
+   Average   95.185   25.358333  83.894167  86.056667
+2026-11-21 21:09:35,358 [INFO] ckpt/dual_moe_mvtec\moe_epoch_20.pth
+2026-11-21 21:09:35,476 [INFO] -----------------------------------------------
+2026-11-21 21:09:35,476 [INFO] Successfully loaded model from epoch 20 from ckpt/dual_moe_mvtec\moe_epoch_20.pth
+2026-11-21 21:09:35,476 [INFO] -----------------------------------------------
+2026-11-21 21:28:15,123 [INFO] final results:
+class name pixel AUC   pixel AP  image AUC  image AP
+    candle      98.39      34.58      85.86    89.45
+      pcb3      91.03      19.65      79.04    79.98
+  capsules      96.29      32.01      84.72     91.4
+pipe_fryum      97.62      33.11      95.82    98.15
+      pcb4      95.21      22.75      82.99    81.78
+ macaroni2      96.48       0.68       62.6    60.58
+      pcb2      91.12      10.24      75.28    75.52
+chewinggum      99.17       77.6      97.22    98.87
+ macaroni1      98.01      11.33      75.79    77.98
+    cashew      95.29      29.87      88.26     94.4
+     fryum       94.3      28.26      93.38    96.88
+      pcb1      89.96       4.05      85.89    86.02
+   Average  95.239167  25.344167  83.904167  85.9175
