@@ -153,17 +153,22 @@ def get_adapted_single_class_text_embedding(
             for template in prompt_templates:
                 prompted_sentence.append(template.format(s))
         prompted_sentence = tokenize(prompted_sentence).to(device)
+        # 仅在 MoECLIP（含 text_adapter）上传入视觉上下文与状态索引；
+        # 原始 CLIP 不具备这些参数，保持原调用以免报错。
+        # prompt_state = [prompt_normal, prompt_abnormal]，故 i=0 为正常、i=1 为异常。
+        extra_kwargs = {}
+        if hasattr(model, "text_adapter"):
+            extra_kwargs["visual_context"] = visual_context
+            extra_kwargs["state_idx"] = i
         if return_aux:
             class_embeddings, load_balance_loss, etf_special_loss = model.encode_text(
-                prompted_sentence, return_aux=True, visual_context=visual_context
+                prompted_sentence, return_aux=True, **extra_kwargs
             )
             total_load_balance_loss += load_balance_loss
             total_etf_loss += etf_special_loss
             num_encode_calls += 1
         else:
-            class_embeddings = model.encode_text(
-                prompted_sentence, visual_context=visual_context
-            )
+            class_embeddings = model.encode_text(prompted_sentence, **extra_kwargs)
         class_embeddings = class_embeddings / class_embeddings.norm(
             dim=-1, keepdim=True
         )

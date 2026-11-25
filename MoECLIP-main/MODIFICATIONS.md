@@ -6,10 +6,14 @@
 
 | 修改 | 名称 | 核心内容 | 状态 |
 |---|---|---|---|
-| 第一次 | 双侧 MoE（v1） | 在视觉 MoE 基础上，为文本编码器增加独立 MoE | 已完成并跑出结果 |
-| 第二次 | 视觉引导的文本路由（v2） | 用全局视觉上下文引导文本 MoE 的专家路由，实现跨模态协同 | 本次修改（当前默认） |
+| 第一次 | 双侧 MoE（v1） | 在视觉 MoE 基础上，为文本编码器增加独立 MoE | 有效，优于论文基准 |
+| 第二次 | 视觉引导的文本路由（v2） | 用全局视觉上下文引导文本 MoE 的专家路由，实现跨模态协同 | 工业集全面下降，已默认关闭（保留为可选消融臂） |
+| 第三次 | 状态感知双专家池（v3） | 文本侧正常/异常两套独立专家池，按状态路由 | 本次修改（当前默认） |
 
-通过 `--no_visual_router` 开关可回退到 v1（独立双侧 MoE），便于做消融对比。
+通过开关可在同一份代码上复现三个版本，便于消融对比：
+- **v1**（共享单池）：`--no_state_pools`（视觉引导默认关）。
+- **v2**（视觉引导）：`--use_visual_router`。
+- **v3**（状态双池，默认）：不加额外参数即可。
 
 ---
 
@@ -152,27 +156,77 @@ python test.py  --save_path ckpt/dual_moe_v1 --no_visual_router
 
 ### 3.7 与 v1 的关系
 
-v2 是在 v1 地基上的**增量创新**：v1 提供"双侧都有 MoE"的结构，v2 在其上叠加"跨模态路由协同"。二者通过 `--no_visual_router` 切换，构成 `v1（独立双侧）→ v2（协同双侧）` 的核心消融对比。
+v2 是在 v1 地基上的增量改动：v1 提供"双侧都有 MoE"的结构，v2 在其上叠加"跨模态路由协同"。**实验结果**：v2 在工业数据集上相对 v1 全面下降（原因分析见 4.1），因此 v2 已默认关闭，仅通过 `--use_visual_router` 保留为可选消融臂。
 
 ---
 
-## 四、验证情况
+## 四、第三次修改：状态感知双专家池（v3，本次）
+
+### 4.1 动机：为什么搞状态感知双池
+
+1. **v2 的教训**：第二次修改（视觉引导文本路由）在工业数据集上相对 v1 全面下降。根源在于——ZSAD 靠文本充当"正常/异常语义锚点"，异常分数 = 图像与异常文本的相似度 − 与正常文本的相似度，这要求文本语义**稳定**；而 v2 让文本随每张图动态变化，扰动了语义锚点，削弱了正常/异常的对比判别力。因此 v2 默认关闭（保留为可选消融臂）。
+2. **回到 v1 的有效结构**：v1 已验证优于论文基准，其"文本按类共享、语义锚点稳定"的设计应当保留。新的创新点不应再破坏文本稳定性。
+3. **正常与异常是不同的语义状态**：PromptMoE 的关键发现是——正常（normality）是可提炼的通用语义基元，而异常高度多样、动态。让这两种语义状态共享同一组专家，容易造成表征混淆。
+4. **因此**：把文本 MoE 的专家拆成**正常池与异常池两套**，正常 prompt 只路由正常池、异常 prompt 只路由异常池，为两种语义状态分配专门的表征空间。
+
+**与 v2 的本质区别**：v3 不改变文本的 per-class 稳定性（文本仍按类共享、锚点稳定），只是在专家分配上引入"状态"这一归纳偏置；而 v2 改变的是文本的稳定性。这正是 v3 风险更低、更可能带来正向收益的原因。
+
+### 4.2 核心设计
+
+- **两套独立专家池**：文本侧每个 MoE 层包含正常池、异常池，各 `text_moe_num_experts`（默认 4）个 LoRA 专家，池内仍 `top_k`（默认 2）动态路由——**路由能力与 v1 完全一致**，只是按状态分离。
+- **按状态路由**：`get_adapted_single_class_text_embedding()` 中 `prompt_state = [prompt_normal, prompt_abnormal]`，循环索引 `i=0`（正常）/ `i=1`（异常）作为 `state_idx` 传入 `encode_text()`，据此选择对应专家池。
+- **不破坏文本稳定性**：文本仍按类编码、跨图像共享，语义锚点稳定（区别于 v2 的 per-image 动态文本）。
+
+### 4.3 结构改动（涉及文件）
+
+- `model/moe_adapter.py`
+  - `MoECLIP` 新增 `use_state_pools`（默认 True）；文本 MoE 拆为 `moe_adapters_normal` / `moe_adapters_abnormal` 两套。
+  - `encode_text()` 新增 `state_idx` 参数；文本 MoE 层按 `use_state_pools and state_idx == 1` 选择异常池，否则走正常池。
+- `forward_utils.py`
+  - `get_adapted_single_class_text_embedding()` 传入 `state_idx=i`；用 `hasattr(model, "text_adapter")` 条件性传参，兼容原始 CLIP。
+- `train.py` / `test.py`
+  - 视觉引导开关改为 `--use_visual_router`（默认关）；新增 `--no_state_pools`（默认开双池）；模型构造传入 `use_state_pools`。
+
+### 4.4 开关与命令
+
+```bash
+# v3（默认：视觉引导关 + 状态双池开）
+python train.py --save_path ckpt/dual_moe_v3
+python test.py  --save_path ckpt/dual_moe_v3
+
+# v1 对照（共享单池）
+python train.py --save_path ckpt/dual_moe_v1 --no_state_pools
+
+# v2 对照（视觉引导，已证有害，仅作分析）
+python train.py --save_path ckpt/dual_moe_v2 --use_visual_router
+```
+
+### 4.5 设计说明
+
+- **参数量**：双池使文本专家数翻倍（每池仍 4 个、LoRA rank 8，文本专家很小，显存/参数增量有限）。
+- **v1 对照的公平性**：`use_state_pools=False` 时仍创建两套池、但仅使用正常池（异常池不训练、不影响前向），保证 v1/v3 checkpoint 结构一致、可公平对比。
+- **checkpoint**：v3 文本池键名由 `moe_adapters` 变为 `moe_adapters_normal/abnormal`，与 v1/v2 不通用，建议用新 `save_path` 重新训练。
+
+---
+
+## 五、验证情况
 
 - `model/moe_adapter.py`、`forward_utils.py`、`train.py`、`test.py` 均通过 Python `py_compile` 语法检查；
 - 四个修改文件的 IDE 静态诊断无错误或警告。
 
-**尚未执行完整模型前向/训练/测试**：当前命令行环境未安装 PyTorch，完整运行需 CLIP 预训练权重与实际数据集。请在服务器上先用小数据集（如 MVTec + VisA）验证 v2 训练稳定、结果合理，再跑全量 14 数据集。
+**尚未执行完整模型前向/训练/测试**：当前命令行环境未安装 PyTorch，完整运行需 CLIP 预训练权重与实际数据集。请在服务器上先用小数据集（如 MVTec + VisA）验证 v3 训练稳定、结果合理，再跑全量 14 数据集。
 
 ---
 
-## 五、后续消融计划
+## 六、后续消融计划
 
-| 阶段 | 实验 | 目的 |
-|---|---|---|
-| 1 | 仅视觉 MoE（`--text_moe_layers ""`） | 复现原始 MoECLIP，公平 baseline |
-| 2 | 仅文本 MoE（关视觉 MoE） | 单独验证文本侧 MoE |
-| 3 | v1 独立双侧 MoE（`--no_visual_router`） | 第一次修改，地基 |
-| 4 | **v2 视觉引导双侧 MoE（默认）** | 第二次修改，核心创新 |
-| 5 | 进阶：路由一致性约束、正常/异常状态感知双专家池 | 后续创新点 |
+| 阶段 | 实验 | 命令关键参数 | 目的 |
+|---|---|---|---|
+| 1 | 仅视觉 MoE | `--text_moe_layers ""` | 复现原始 MoECLIP，公平 baseline |
+| 2 | 仅文本 MoE | 关视觉 MoE | 单独验证文本侧 MoE |
+| 3 | v1 共享单池 | `--no_state_pools` | 第一次修改，有效地基 |
+| 4 | v2 视觉引导 | `--use_visual_router` | 第二次修改，已证有害（分析用） |
+| 5 | **v3 状态双池（默认）** | 默认 | 第三次修改，当前主线 |
+| 6 | 进阶：路由一致性约束、双侧双池 | — | 后续创新点 |
 
 建议每组记录 image/pixel AUROC、AP、可训练参数量、显存占用、专家利用率，并用多个随机种子验证稳定性；结果按 `results/v1/`、`results/v2/`… 分目录存放，不覆盖旧版。

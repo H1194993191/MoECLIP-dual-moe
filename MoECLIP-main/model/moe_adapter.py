@@ -297,6 +297,7 @@ class MoECLIP(nn.Module):
         use_fofs: bool = True,
         moe_layers: Optional[List[int]] = None,
         text_moe_layers: Optional[List[int]] = None,
+        use_state_pools: bool = True,
         relu: bool = True,
         **kwargs,
     ):
@@ -308,6 +309,7 @@ class MoECLIP(nn.Module):
         self.levels = levels
         self.moe_layers = moe_layers if moe_layers is not None else [5, 11, 17, 23]
         self.text_moe_layers = text_moe_layers if text_moe_layers is not None else [8, 11]
+        self.use_state_pools = use_state_pools
         
         self.use_paa = use_paa
         
@@ -369,7 +371,14 @@ class MoECLIP(nn.Module):
             }
         )
         text_d_model = self.clipmodel.transformer.width
-        text_moe_adapters = nn.ModuleList([
+        # 第三次修改：状态感知双专家池。文本侧建正常、异常两套独立 MoE 池，
+        # 每池专家数仍为 text_moe_num_experts、池内仍 top-k 动态路由（路由能力不弱于 v1）。
+        # 正常 prompt 只路由正常池、异常 prompt 只路由异常池，避免两种语义状态共享专家造成混淆。
+        text_moe_adapters_normal = nn.ModuleList([
+            BaseIndependentMoE(d_model=text_d_model, config=text_moe_config, use_fofs=use_fofs)
+            for _ in self.text_moe_layers
+        ])
+        text_moe_adapters_abnormal = nn.ModuleList([
             BaseIndependentMoE(d_model=text_d_model, config=text_moe_config, use_fofs=use_fofs)
             for _ in self.text_moe_layers
         ])
@@ -390,7 +399,8 @@ class MoECLIP(nn.Module):
         self.text_adapter = nn.ModuleDict(
             {
                 "proj": SimpleProj(text_d_model, 768, relu=True),
-                "moe_adapters": text_moe_adapters,
+                "moe_adapters_normal": text_moe_adapters_normal,
+                "moe_adapters_abnormal": text_moe_adapters_abnormal,
                 # 视觉引导文本路由：把全局视觉上下文（det_token，768 维）投影到文本维度，
                 # 作为文本 MoE Router 的路由偏置，实现“看到什么图决定文本怎么路由”。
                 "visual_router_proj": nn.Linear(768, text_d_model),
@@ -542,7 +552,7 @@ class MoECLIP(nn.Module):
         
         return seg_tokens, det_token, total_aux_loss, special_loss
 
-    def encode_text(self, text, adapt_text=True, return_aux=False, visual_context=None):
+    def encode_text(self, text, adapt_text=True, return_aux=False, visual_context=None, state_idx=None):
         if not adapt_text:
             text_features = self.clipmodel.encode_text(text)
             if return_aux:
@@ -567,13 +577,19 @@ class MoECLIP(nn.Module):
 
             if i in self.text_moe_layers:
                 moe_idx = self.text_moe_layers.index(i)
+                # 状态感知双池：异常状态（state_idx==1）路由异常池，其余路由正常池。
+                # use_state_pools=False 时统一走正常池，退化为 v1 的共享单池。
+                if self.use_state_pools and state_idx == 1:
+                    moe_pool = self.text_adapter["moe_adapters_abnormal"]
+                else:
+                    moe_pool = self.text_adapter["moe_adapters_normal"]
                 # 视觉引导：将全局视觉上下文投影到文本维度，作为文本 MoE 的路由偏置。
-                # visual_context 为 None 时退化为第一次修改的独立文本路由。
+                # visual_context 为 None 时退化为独立文本路由。
                 router_context = None
                 if visual_context is not None:
                     router_context = self.text_adapter["visual_router_proj"](visual_context)
                 moe_output, moe_lb_loss, all_expert_outputs, selected_experts = \
-                    self.text_adapter["moe_adapters"][moe_idx](
+                    moe_pool[moe_idx](
                         x, token_mask=valid_token_mask, router_context=router_context
                     )
 

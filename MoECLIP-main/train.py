@@ -193,10 +193,16 @@ def main():
     parser.add_argument("--text_balance_loss_lambda", type=float, default=0.01, help="Weight for text load balancing loss")
     parser.add_argument("--text_etf_loss_lambda", type=float, default=0.01, help="Weight for text ETF loss")
     parser.add_argument(
-        "--no_visual_router",
-        action="store_false",
+        "--use_visual_router",
+        action="store_true",
         dest="use_visual_router",
-        help="Disable visually-guided text routing; fall back to v1 independent dual-side MoE",
+        help="Enable visually-guided text routing (v2, found to hurt ZSAD); default off",
+    )
+    parser.add_argument(
+        "--no_state_pools",
+        action="store_false",
+        dest="use_state_pools",
+        help="Disable state-aware dual expert pools (v3); fall back to shared single text pool (v1)",
     )
     parser.add_argument(
         "--moe_layers",
@@ -308,6 +314,7 @@ def main():
         text_moe_top_k=args.text_moe_top_k,
         moe_layers=moe_layers,
         text_moe_layers=text_moe_layers,
+        use_state_pools=args.use_state_pools,
         relu=args.relu,
     ).to(device)
     model.eval()
